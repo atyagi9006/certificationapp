@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package grpcproto;
+
+message Candidate {
+  string CandidateID = 1;
+  string CandidateName = 2;
+  repeated Eligibility EligibilityList = 3;
+  repeated TestResult TestResultList = 4;
+}
+
+message Eligibility {
+  string EligibilityID = 1;
+  string EligibilityLevel = 2;
+  repeated string TestIDList = 3;
+}
+
+message TestResult {
+  string CategoryID = 1;
+  string TestID = 2;
+  string Result = 3;
+  string Score = 4;
+}
+
+message CandidateCreateResponse{
+    string CandidateID = 1;
+    bool Status=2;
+}
+
+
+
+service CandidateService {
+   rpc CreateCandidate(Candidate) returns (CandidateCreateResponse);
+}
