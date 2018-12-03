@@ -15,6 +15,19 @@ message Eligibility {
   repeated string TestIDList = 3;
 }
 
+
+message User {
+  string UserName = 1;
+  string Password = 2;
+  string Type =3;
+}
+
+message UserCreateResponse{
+  string UserID = 1;
+  bool Status=2;
+}
+
+
 message TestResult {
   string CategoryID = 1;
   string TestID = 2;
@@ -27,7 +40,9 @@ message CandidateCreateResponse{
     bool Status=2;
 }
 
-
+service UserService{
+  rpc CreateUser(User) returns (UserCreateResponse);
+}
 
 service CandidateService {
    rpc CreateCandidate(Candidate) returns (CandidateCreateResponse);
