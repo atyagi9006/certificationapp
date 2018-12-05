@@ -23,126 +23,13 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type Candidate struct {
-	CandidateID          string         `protobuf:"bytes,1,opt,name=CandidateID,json=candidateID,proto3" json:"CandidateID,omitempty"`
-	CandidateName        string         `protobuf:"bytes,2,opt,name=CandidateName,json=candidateName,proto3" json:"CandidateName,omitempty"`
-	EligibilityList      []*Eligibility `protobuf:"bytes,3,rep,name=EligibilityList,json=eligibilityList,proto3" json:"EligibilityList,omitempty"`
-	TestResultList       []*TestResult  `protobuf:"bytes,4,rep,name=TestResultList,json=testResultList,proto3" json:"TestResultList,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *Candidate) Reset()         { *m = Candidate{} }
-func (m *Candidate) String() string { return proto.CompactTextString(m) }
-func (*Candidate) ProtoMessage()    {}
-func (*Candidate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_protofile_32d3f9170a831234, []int{0}
-}
-func (m *Candidate) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Candidate.Unmarshal(m, b)
-}
-func (m *Candidate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Candidate.Marshal(b, m, deterministic)
-}
-func (dst *Candidate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Candidate.Merge(dst, src)
-}
-func (m *Candidate) XXX_Size() int {
-	return xxx_messageInfo_Candidate.Size(m)
-}
-func (m *Candidate) XXX_DiscardUnknown() {
-	xxx_messageInfo_Candidate.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Candidate proto.InternalMessageInfo
-
-func (m *Candidate) GetCandidateID() string {
-	if m != nil {
-		return m.CandidateID
-	}
-	return ""
-}
-
-func (m *Candidate) GetCandidateName() string {
-	if m != nil {
-		return m.CandidateName
-	}
-	return ""
-}
-
-func (m *Candidate) GetEligibilityList() []*Eligibility {
-	if m != nil {
-		return m.EligibilityList
-	}
-	return nil
-}
-
-func (m *Candidate) GetTestResultList() []*TestResult {
-	if m != nil {
-		return m.TestResultList
-	}
-	return nil
-}
-
-type Eligibility struct {
-	EligibilityID        string   `protobuf:"bytes,1,opt,name=EligibilityID,json=eligibilityID,proto3" json:"EligibilityID,omitempty"`
-	EligibilityLevel     string   `protobuf:"bytes,2,opt,name=EligibilityLevel,json=eligibilityLevel,proto3" json:"EligibilityLevel,omitempty"`
-	TestIDList           []string `protobuf:"bytes,3,rep,name=TestIDList,json=testIDList,proto3" json:"TestIDList,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *Eligibility) Reset()         { *m = Eligibility{} }
-func (m *Eligibility) String() string { return proto.CompactTextString(m) }
-func (*Eligibility) ProtoMessage()    {}
-func (*Eligibility) Descriptor() ([]byte, []int) {
-	return fileDescriptor_protofile_32d3f9170a831234, []int{1}
-}
-func (m *Eligibility) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Eligibility.Unmarshal(m, b)
-}
-func (m *Eligibility) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Eligibility.Marshal(b, m, deterministic)
-}
-func (dst *Eligibility) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Eligibility.Merge(dst, src)
-}
-func (m *Eligibility) XXX_Size() int {
-	return xxx_messageInfo_Eligibility.Size(m)
-}
-func (m *Eligibility) XXX_DiscardUnknown() {
-	xxx_messageInfo_Eligibility.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Eligibility proto.InternalMessageInfo
-
-func (m *Eligibility) GetEligibilityID() string {
-	if m != nil {
-		return m.EligibilityID
-	}
-	return ""
-}
-
-func (m *Eligibility) GetEligibilityLevel() string {
-	if m != nil {
-		return m.EligibilityLevel
-	}
-	return ""
-}
-
-func (m *Eligibility) GetTestIDList() []string {
-	if m != nil {
-		return m.TestIDList
-	}
-	return nil
-}
-
 type User struct {
 	UserName             string   `protobuf:"bytes,1,opt,name=UserName,json=userName,proto3" json:"UserName,omitempty"`
 	Password             string   `protobuf:"bytes,2,opt,name=Password,json=password,proto3" json:"Password,omitempty"`
 	Type                 string   `protobuf:"bytes,3,opt,name=Type,json=type,proto3" json:"Type,omitempty"`
+	Email                string   `protobuf:"bytes,4,opt,name=Email,json=email,proto3" json:"Email,omitempty"`
+	Name                 string   `protobuf:"bytes,5,opt,name=Name,json=name,proto3" json:"Name,omitempty"`
+	UserID               string   `protobuf:"bytes,6,opt,name=UserID,json=userID,proto3" json:"UserID,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -152,7 +39,7 @@ func (m *User) Reset()         { *m = User{} }
 func (m *User) String() string { return proto.CompactTextString(m) }
 func (*User) ProtoMessage()    {}
 func (*User) Descriptor() ([]byte, []int) {
-	return fileDescriptor_protofile_32d3f9170a831234, []int{2}
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{0}
 }
 func (m *User) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_User.Unmarshal(m, b)
@@ -193,6 +80,27 @@ func (m *User) GetType() string {
 	return ""
 }
 
+func (m *User) GetEmail() string {
+	if m != nil {
+		return m.Email
+	}
+	return ""
+}
+
+func (m *User) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *User) GetUserID() string {
+	if m != nil {
+		return m.UserID
+	}
+	return ""
+}
+
 type UserCreateResponse struct {
 	UserID               string   `protobuf:"bytes,1,opt,name=UserID,json=userID,proto3" json:"UserID,omitempty"`
 	Status               bool     `protobuf:"varint,2,opt,name=Status,json=status,proto3" json:"Status,omitempty"`
@@ -205,7 +113,7 @@ func (m *UserCreateResponse) Reset()         { *m = UserCreateResponse{} }
 func (m *UserCreateResponse) String() string { return proto.CompactTextString(m) }
 func (*UserCreateResponse) ProtoMessage()    {}
 func (*UserCreateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_protofile_32d3f9170a831234, []int{3}
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{1}
 }
 func (m *UserCreateResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UserCreateResponse.Unmarshal(m, b)
@@ -239,6 +147,328 @@ func (m *UserCreateResponse) GetStatus() bool {
 	return false
 }
 
+type Candidate struct {
+	CandidateID          string         `protobuf:"bytes,1,opt,name=CandidateID,json=candidateID,proto3" json:"CandidateID,omitempty"`
+	EligibilityList      []*Eligibility `protobuf:"bytes,2,rep,name=EligibilityList,json=eligibilityList,proto3" json:"EligibilityList,omitempty"`
+	TestResultList       []*TestResult  `protobuf:"bytes,3,rep,name=TestResultList,json=testResultList,proto3" json:"TestResultList,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *Candidate) Reset()         { *m = Candidate{} }
+func (m *Candidate) String() string { return proto.CompactTextString(m) }
+func (*Candidate) ProtoMessage()    {}
+func (*Candidate) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{2}
+}
+func (m *Candidate) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Candidate.Unmarshal(m, b)
+}
+func (m *Candidate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Candidate.Marshal(b, m, deterministic)
+}
+func (dst *Candidate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Candidate.Merge(dst, src)
+}
+func (m *Candidate) XXX_Size() int {
+	return xxx_messageInfo_Candidate.Size(m)
+}
+func (m *Candidate) XXX_DiscardUnknown() {
+	xxx_messageInfo_Candidate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Candidate proto.InternalMessageInfo
+
+func (m *Candidate) GetCandidateID() string {
+	if m != nil {
+		return m.CandidateID
+	}
+	return ""
+}
+
+func (m *Candidate) GetEligibilityList() []*Eligibility {
+	if m != nil {
+		return m.EligibilityList
+	}
+	return nil
+}
+
+func (m *Candidate) GetTestResultList() []*TestResult {
+	if m != nil {
+		return m.TestResultList
+	}
+	return nil
+}
+
+type ListCandidateResponse struct {
+	Candidates           []*Candidate `protobuf:"bytes,1,rep,name=candidates,proto3" json:"candidates,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *ListCandidateResponse) Reset()         { *m = ListCandidateResponse{} }
+func (m *ListCandidateResponse) String() string { return proto.CompactTextString(m) }
+func (*ListCandidateResponse) ProtoMessage()    {}
+func (*ListCandidateResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{3}
+}
+func (m *ListCandidateResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListCandidateResponse.Unmarshal(m, b)
+}
+func (m *ListCandidateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListCandidateResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListCandidateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListCandidateResponse.Merge(dst, src)
+}
+func (m *ListCandidateResponse) XXX_Size() int {
+	return xxx_messageInfo_ListCandidateResponse.Size(m)
+}
+func (m *ListCandidateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListCandidateResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListCandidateResponse proto.InternalMessageInfo
+
+func (m *ListCandidateResponse) GetCandidates() []*Candidate {
+	if m != nil {
+		return m.Candidates
+	}
+	return nil
+}
+
+type CandidateCreateResponse struct {
+	CandidateID          string   `protobuf:"bytes,1,opt,name=CandidateID,json=candidateID,proto3" json:"CandidateID,omitempty"`
+	Status               bool     `protobuf:"varint,2,opt,name=Status,json=status,proto3" json:"Status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CandidateCreateResponse) Reset()         { *m = CandidateCreateResponse{} }
+func (m *CandidateCreateResponse) String() string { return proto.CompactTextString(m) }
+func (*CandidateCreateResponse) ProtoMessage()    {}
+func (*CandidateCreateResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{4}
+}
+func (m *CandidateCreateResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CandidateCreateResponse.Unmarshal(m, b)
+}
+func (m *CandidateCreateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CandidateCreateResponse.Marshal(b, m, deterministic)
+}
+func (dst *CandidateCreateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CandidateCreateResponse.Merge(dst, src)
+}
+func (m *CandidateCreateResponse) XXX_Size() int {
+	return xxx_messageInfo_CandidateCreateResponse.Size(m)
+}
+func (m *CandidateCreateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CandidateCreateResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CandidateCreateResponse proto.InternalMessageInfo
+
+func (m *CandidateCreateResponse) GetCandidateID() string {
+	if m != nil {
+		return m.CandidateID
+	}
+	return ""
+}
+
+func (m *CandidateCreateResponse) GetStatus() bool {
+	if m != nil {
+		return m.Status
+	}
+	return false
+}
+
+type CurrentTest struct {
+	CandidtateID         string   `protobuf:"bytes,1,opt,name=CandidtateID,json=candidtateID,proto3" json:"CandidtateID,omitempty"`
+	TestID               string   `protobuf:"bytes,2,opt,name=TestID,json=testID,proto3" json:"TestID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CurrentTest) Reset()         { *m = CurrentTest{} }
+func (m *CurrentTest) String() string { return proto.CompactTextString(m) }
+func (*CurrentTest) ProtoMessage()    {}
+func (*CurrentTest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{5}
+}
+func (m *CurrentTest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CurrentTest.Unmarshal(m, b)
+}
+func (m *CurrentTest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CurrentTest.Marshal(b, m, deterministic)
+}
+func (dst *CurrentTest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CurrentTest.Merge(dst, src)
+}
+func (m *CurrentTest) XXX_Size() int {
+	return xxx_messageInfo_CurrentTest.Size(m)
+}
+func (m *CurrentTest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CurrentTest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CurrentTest proto.InternalMessageInfo
+
+func (m *CurrentTest) GetCandidtateID() string {
+	if m != nil {
+		return m.CandidtateID
+	}
+	return ""
+}
+
+func (m *CurrentTest) GetTestID() string {
+	if m != nil {
+		return m.TestID
+	}
+	return ""
+}
+
+type Category struct {
+	CategoryID           string   `protobuf:"bytes,1,opt,name=CategoryID,json=categoryID,proto3" json:"CategoryID,omitempty"`
+	CategoryName         string   `protobuf:"bytes,2,opt,name=CategoryName,json=categoryName,proto3" json:"CategoryName,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Category) Reset()         { *m = Category{} }
+func (m *Category) String() string { return proto.CompactTextString(m) }
+func (*Category) ProtoMessage()    {}
+func (*Category) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{6}
+}
+func (m *Category) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Category.Unmarshal(m, b)
+}
+func (m *Category) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Category.Marshal(b, m, deterministic)
+}
+func (dst *Category) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Category.Merge(dst, src)
+}
+func (m *Category) XXX_Size() int {
+	return xxx_messageInfo_Category.Size(m)
+}
+func (m *Category) XXX_DiscardUnknown() {
+	xxx_messageInfo_Category.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Category proto.InternalMessageInfo
+
+func (m *Category) GetCategoryID() string {
+	if m != nil {
+		return m.CategoryID
+	}
+	return ""
+}
+
+func (m *Category) GetCategoryName() string {
+	if m != nil {
+		return m.CategoryName
+	}
+	return ""
+}
+
+type ListCategoryResponse struct {
+	Categories           []*Category `protobuf:"bytes,1,rep,name=categories,proto3" json:"categories,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ListCategoryResponse) Reset()         { *m = ListCategoryResponse{} }
+func (m *ListCategoryResponse) String() string { return proto.CompactTextString(m) }
+func (*ListCategoryResponse) ProtoMessage()    {}
+func (*ListCategoryResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{7}
+}
+func (m *ListCategoryResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListCategoryResponse.Unmarshal(m, b)
+}
+func (m *ListCategoryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListCategoryResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListCategoryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListCategoryResponse.Merge(dst, src)
+}
+func (m *ListCategoryResponse) XXX_Size() int {
+	return xxx_messageInfo_ListCategoryResponse.Size(m)
+}
+func (m *ListCategoryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListCategoryResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListCategoryResponse proto.InternalMessageInfo
+
+func (m *ListCategoryResponse) GetCategories() []*Category {
+	if m != nil {
+		return m.Categories
+	}
+	return nil
+}
+
+type Eligibility struct {
+	EligibilityID        string   `protobuf:"bytes,1,opt,name=EligibilityID,json=eligibilityID,proto3" json:"EligibilityID,omitempty"`
+	EligibilityLevel     string   `protobuf:"bytes,2,opt,name=EligibilityLevel,json=eligibilityLevel,proto3" json:"EligibilityLevel,omitempty"`
+	TestIDList           []string `protobuf:"bytes,3,rep,name=TestIDList,json=testIDList,proto3" json:"TestIDList,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Eligibility) Reset()         { *m = Eligibility{} }
+func (m *Eligibility) String() string { return proto.CompactTextString(m) }
+func (*Eligibility) ProtoMessage()    {}
+func (*Eligibility) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{8}
+}
+func (m *Eligibility) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Eligibility.Unmarshal(m, b)
+}
+func (m *Eligibility) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Eligibility.Marshal(b, m, deterministic)
+}
+func (dst *Eligibility) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Eligibility.Merge(dst, src)
+}
+func (m *Eligibility) XXX_Size() int {
+	return xxx_messageInfo_Eligibility.Size(m)
+}
+func (m *Eligibility) XXX_DiscardUnknown() {
+	xxx_messageInfo_Eligibility.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Eligibility proto.InternalMessageInfo
+
+func (m *Eligibility) GetEligibilityID() string {
+	if m != nil {
+		return m.EligibilityID
+	}
+	return ""
+}
+
+func (m *Eligibility) GetEligibilityLevel() string {
+	if m != nil {
+		return m.EligibilityLevel
+	}
+	return ""
+}
+
+func (m *Eligibility) GetTestIDList() []string {
+	if m != nil {
+		return m.TestIDList
+	}
+	return nil
+}
+
 type TestResult struct {
 	CategoryID           string   `protobuf:"bytes,1,opt,name=CategoryID,json=categoryID,proto3" json:"CategoryID,omitempty"`
 	TestID               string   `protobuf:"bytes,2,opt,name=TestID,json=testID,proto3" json:"TestID,omitempty"`
@@ -253,7 +483,7 @@ func (m *TestResult) Reset()         { *m = TestResult{} }
 func (m *TestResult) String() string { return proto.CompactTextString(m) }
 func (*TestResult) ProtoMessage()    {}
 func (*TestResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_protofile_32d3f9170a831234, []int{4}
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{9}
 }
 func (m *TestResult) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestResult.Unmarshal(m, b)
@@ -301,59 +531,546 @@ func (m *TestResult) GetScore() string {
 	return ""
 }
 
-type CandidateCreateResponse struct {
-	CandidateID          string   `protobuf:"bytes,1,opt,name=CandidateID,json=candidateID,proto3" json:"CandidateID,omitempty"`
-	Status               bool     `protobuf:"varint,2,opt,name=Status,json=status,proto3" json:"Status,omitempty"`
+type Test struct {
+	CategoryID           string   `protobuf:"bytes,1,opt,name=CategoryID,json=categoryID,proto3" json:"CategoryID,omitempty"`
+	TestID               string   `protobuf:"bytes,2,opt,name=TestID,json=testID,proto3" json:"TestID,omitempty"`
+	TestName             string   `protobuf:"bytes,3,opt,name=TestName,json=testName,proto3" json:"TestName,omitempty"`
+	QuestionIDList       []string `protobuf:"bytes,4,rep,name=QuestionIDList,json=questionIDList,proto3" json:"QuestionIDList,omitempty"`
+	TestDuration         string   `protobuf:"bytes,5,opt,name=TestDuration,json=testDuration,proto3" json:"TestDuration,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CandidateCreateResponse) Reset()         { *m = CandidateCreateResponse{} }
-func (m *CandidateCreateResponse) String() string { return proto.CompactTextString(m) }
-func (*CandidateCreateResponse) ProtoMessage()    {}
-func (*CandidateCreateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_protofile_32d3f9170a831234, []int{5}
+func (m *Test) Reset()         { *m = Test{} }
+func (m *Test) String() string { return proto.CompactTextString(m) }
+func (*Test) ProtoMessage()    {}
+func (*Test) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{10}
 }
-func (m *CandidateCreateResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CandidateCreateResponse.Unmarshal(m, b)
+func (m *Test) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Test.Unmarshal(m, b)
 }
-func (m *CandidateCreateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CandidateCreateResponse.Marshal(b, m, deterministic)
+func (m *Test) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Test.Marshal(b, m, deterministic)
 }
-func (dst *CandidateCreateResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CandidateCreateResponse.Merge(dst, src)
+func (dst *Test) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Test.Merge(dst, src)
 }
-func (m *CandidateCreateResponse) XXX_Size() int {
-	return xxx_messageInfo_CandidateCreateResponse.Size(m)
+func (m *Test) XXX_Size() int {
+	return xxx_messageInfo_Test.Size(m)
 }
-func (m *CandidateCreateResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_CandidateCreateResponse.DiscardUnknown(m)
+func (m *Test) XXX_DiscardUnknown() {
+	xxx_messageInfo_Test.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CandidateCreateResponse proto.InternalMessageInfo
+var xxx_messageInfo_Test proto.InternalMessageInfo
 
-func (m *CandidateCreateResponse) GetCandidateID() string {
+func (m *Test) GetCategoryID() string {
+	if m != nil {
+		return m.CategoryID
+	}
+	return ""
+}
+
+func (m *Test) GetTestID() string {
+	if m != nil {
+		return m.TestID
+	}
+	return ""
+}
+
+func (m *Test) GetTestName() string {
+	if m != nil {
+		return m.TestName
+	}
+	return ""
+}
+
+func (m *Test) GetQuestionIDList() []string {
+	if m != nil {
+		return m.QuestionIDList
+	}
+	return nil
+}
+
+func (m *Test) GetTestDuration() string {
+	if m != nil {
+		return m.TestDuration
+	}
+	return ""
+}
+
+type ListTestResponse struct {
+	Tests                []*Test  `protobuf:"bytes,1,rep,name=tests,proto3" json:"tests,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ListTestResponse) Reset()         { *m = ListTestResponse{} }
+func (m *ListTestResponse) String() string { return proto.CompactTextString(m) }
+func (*ListTestResponse) ProtoMessage()    {}
+func (*ListTestResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{11}
+}
+func (m *ListTestResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListTestResponse.Unmarshal(m, b)
+}
+func (m *ListTestResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListTestResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListTestResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListTestResponse.Merge(dst, src)
+}
+func (m *ListTestResponse) XXX_Size() int {
+	return xxx_messageInfo_ListTestResponse.Size(m)
+}
+func (m *ListTestResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListTestResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListTestResponse proto.InternalMessageInfo
+
+func (m *ListTestResponse) GetTests() []*Test {
+	if m != nil {
+		return m.Tests
+	}
+	return nil
+}
+
+type TestLaunchResponse struct {
+	QuestionList         []*Question `protobuf:"bytes,1,rep,name=questionList,proto3" json:"questionList,omitempty"`
+	OptionList           []*Option   `protobuf:"bytes,2,rep,name=optionList,proto3" json:"optionList,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *TestLaunchResponse) Reset()         { *m = TestLaunchResponse{} }
+func (m *TestLaunchResponse) String() string { return proto.CompactTextString(m) }
+func (*TestLaunchResponse) ProtoMessage()    {}
+func (*TestLaunchResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{12}
+}
+func (m *TestLaunchResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TestLaunchResponse.Unmarshal(m, b)
+}
+func (m *TestLaunchResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TestLaunchResponse.Marshal(b, m, deterministic)
+}
+func (dst *TestLaunchResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TestLaunchResponse.Merge(dst, src)
+}
+func (m *TestLaunchResponse) XXX_Size() int {
+	return xxx_messageInfo_TestLaunchResponse.Size(m)
+}
+func (m *TestLaunchResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_TestLaunchResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TestLaunchResponse proto.InternalMessageInfo
+
+func (m *TestLaunchResponse) GetQuestionList() []*Question {
+	if m != nil {
+		return m.QuestionList
+	}
+	return nil
+}
+
+func (m *TestLaunchResponse) GetOptionList() []*Option {
+	if m != nil {
+		return m.OptionList
+	}
+	return nil
+}
+
+type Question struct {
+	QuestionID           string   `protobuf:"bytes,1,opt,name=QuestionID,json=questionID,proto3" json:"QuestionID,omitempty"`
+	QuestionText         string   `protobuf:"bytes,2,opt,name=QuestionText,json=questionText,proto3" json:"QuestionText,omitempty"`
+	IsMCQ                bool     `protobuf:"varint,3,opt,name=IsMCQ,json=isMCQ,proto3" json:"IsMCQ,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Question) Reset()         { *m = Question{} }
+func (m *Question) String() string { return proto.CompactTextString(m) }
+func (*Question) ProtoMessage()    {}
+func (*Question) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{13}
+}
+func (m *Question) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Question.Unmarshal(m, b)
+}
+func (m *Question) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Question.Marshal(b, m, deterministic)
+}
+func (dst *Question) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Question.Merge(dst, src)
+}
+func (m *Question) XXX_Size() int {
+	return xxx_messageInfo_Question.Size(m)
+}
+func (m *Question) XXX_DiscardUnknown() {
+	xxx_messageInfo_Question.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Question proto.InternalMessageInfo
+
+func (m *Question) GetQuestionID() string {
+	if m != nil {
+		return m.QuestionID
+	}
+	return ""
+}
+
+func (m *Question) GetQuestionText() string {
+	if m != nil {
+		return m.QuestionText
+	}
+	return ""
+}
+
+func (m *Question) GetIsMCQ() bool {
+	if m != nil {
+		return m.IsMCQ
+	}
+	return false
+}
+
+type ListQuestionResponse struct {
+	Questions            []*Question `protobuf:"bytes,1,rep,name=questions,proto3" json:"questions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ListQuestionResponse) Reset()         { *m = ListQuestionResponse{} }
+func (m *ListQuestionResponse) String() string { return proto.CompactTextString(m) }
+func (*ListQuestionResponse) ProtoMessage()    {}
+func (*ListQuestionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{14}
+}
+func (m *ListQuestionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListQuestionResponse.Unmarshal(m, b)
+}
+func (m *ListQuestionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListQuestionResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListQuestionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListQuestionResponse.Merge(dst, src)
+}
+func (m *ListQuestionResponse) XXX_Size() int {
+	return xxx_messageInfo_ListQuestionResponse.Size(m)
+}
+func (m *ListQuestionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListQuestionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListQuestionResponse proto.InternalMessageInfo
+
+func (m *ListQuestionResponse) GetQuestions() []*Question {
+	if m != nil {
+		return m.Questions
+	}
+	return nil
+}
+
+type Option struct {
+	QuestionID           string   `protobuf:"bytes,1,opt,name=QuestionID,json=questionID,proto3" json:"QuestionID,omitempty"`
+	OptionID             string   `protobuf:"bytes,2,opt,name=OptionID,json=optionID,proto3" json:"OptionID,omitempty"`
+	OptionText           string   `protobuf:"bytes,3,opt,name=OptionText,json=optionText,proto3" json:"OptionText,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Option) Reset()         { *m = Option{} }
+func (m *Option) String() string { return proto.CompactTextString(m) }
+func (*Option) ProtoMessage()    {}
+func (*Option) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{15}
+}
+func (m *Option) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Option.Unmarshal(m, b)
+}
+func (m *Option) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Option.Marshal(b, m, deterministic)
+}
+func (dst *Option) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Option.Merge(dst, src)
+}
+func (m *Option) XXX_Size() int {
+	return xxx_messageInfo_Option.Size(m)
+}
+func (m *Option) XXX_DiscardUnknown() {
+	xxx_messageInfo_Option.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Option proto.InternalMessageInfo
+
+func (m *Option) GetQuestionID() string {
+	if m != nil {
+		return m.QuestionID
+	}
+	return ""
+}
+
+func (m *Option) GetOptionID() string {
+	if m != nil {
+		return m.OptionID
+	}
+	return ""
+}
+
+func (m *Option) GetOptionText() string {
+	if m != nil {
+		return m.OptionText
+	}
+	return ""
+}
+
+type ListOptionResponse struct {
+	Options              []*Option `protobuf:"bytes,1,rep,name=Options,json=options,proto3" json:"Options,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *ListOptionResponse) Reset()         { *m = ListOptionResponse{} }
+func (m *ListOptionResponse) String() string { return proto.CompactTextString(m) }
+func (*ListOptionResponse) ProtoMessage()    {}
+func (*ListOptionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{16}
+}
+func (m *ListOptionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListOptionResponse.Unmarshal(m, b)
+}
+func (m *ListOptionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListOptionResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListOptionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListOptionResponse.Merge(dst, src)
+}
+func (m *ListOptionResponse) XXX_Size() int {
+	return xxx_messageInfo_ListOptionResponse.Size(m)
+}
+func (m *ListOptionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListOptionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListOptionResponse proto.InternalMessageInfo
+
+func (m *ListOptionResponse) GetOptions() []*Option {
+	if m != nil {
+		return m.Options
+	}
+	return nil
+}
+
+type QuestionToAnswerCorrectMapping struct {
+	QuestionID           string   `protobuf:"bytes,1,opt,name=QuestionID,json=questionID,proto3" json:"QuestionID,omitempty"`
+	CorrectOptionIDList  []string `protobuf:"bytes,2,rep,name=CorrectOptionIDList,json=correctOptionIDList,proto3" json:"CorrectOptionIDList,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *QuestionToAnswerCorrectMapping) Reset()         { *m = QuestionToAnswerCorrectMapping{} }
+func (m *QuestionToAnswerCorrectMapping) String() string { return proto.CompactTextString(m) }
+func (*QuestionToAnswerCorrectMapping) ProtoMessage()    {}
+func (*QuestionToAnswerCorrectMapping) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{17}
+}
+func (m *QuestionToAnswerCorrectMapping) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_QuestionToAnswerCorrectMapping.Unmarshal(m, b)
+}
+func (m *QuestionToAnswerCorrectMapping) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_QuestionToAnswerCorrectMapping.Marshal(b, m, deterministic)
+}
+func (dst *QuestionToAnswerCorrectMapping) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QuestionToAnswerCorrectMapping.Merge(dst, src)
+}
+func (m *QuestionToAnswerCorrectMapping) XXX_Size() int {
+	return xxx_messageInfo_QuestionToAnswerCorrectMapping.Size(m)
+}
+func (m *QuestionToAnswerCorrectMapping) XXX_DiscardUnknown() {
+	xxx_messageInfo_QuestionToAnswerCorrectMapping.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QuestionToAnswerCorrectMapping proto.InternalMessageInfo
+
+func (m *QuestionToAnswerCorrectMapping) GetQuestionID() string {
+	if m != nil {
+		return m.QuestionID
+	}
+	return ""
+}
+
+func (m *QuestionToAnswerCorrectMapping) GetCorrectOptionIDList() []string {
+	if m != nil {
+		return m.CorrectOptionIDList
+	}
+	return nil
+}
+
+type CurrentQuestionOptionElement struct {
+	QuestionID           string   `protobuf:"bytes,1,opt,name=QuestionID,json=questionID,proto3" json:"QuestionID,omitempty"`
+	OptionIDs            []string `protobuf:"bytes,2,rep,name=OptionIDs,json=optionIDs,proto3" json:"OptionIDs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CurrentQuestionOptionElement) Reset()         { *m = CurrentQuestionOptionElement{} }
+func (m *CurrentQuestionOptionElement) String() string { return proto.CompactTextString(m) }
+func (*CurrentQuestionOptionElement) ProtoMessage()    {}
+func (*CurrentQuestionOptionElement) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{18}
+}
+func (m *CurrentQuestionOptionElement) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CurrentQuestionOptionElement.Unmarshal(m, b)
+}
+func (m *CurrentQuestionOptionElement) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CurrentQuestionOptionElement.Marshal(b, m, deterministic)
+}
+func (dst *CurrentQuestionOptionElement) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CurrentQuestionOptionElement.Merge(dst, src)
+}
+func (m *CurrentQuestionOptionElement) XXX_Size() int {
+	return xxx_messageInfo_CurrentQuestionOptionElement.Size(m)
+}
+func (m *CurrentQuestionOptionElement) XXX_DiscardUnknown() {
+	xxx_messageInfo_CurrentQuestionOptionElement.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CurrentQuestionOptionElement proto.InternalMessageInfo
+
+func (m *CurrentQuestionOptionElement) GetQuestionID() string {
+	if m != nil {
+		return m.QuestionID
+	}
+	return ""
+}
+
+func (m *CurrentQuestionOptionElement) GetOptionIDs() []string {
+	if m != nil {
+		return m.OptionIDs
+	}
+	return nil
+}
+
+type CandidateAttemptedQuestionList struct {
+	CandidateID           string                          `protobuf:"bytes,1,opt,name=CandidateID,json=candidateID,proto3" json:"CandidateID,omitempty"`
+	AttemptedQuestionList []*CurrentQuestionOptionElement `protobuf:"bytes,2,rep,name=AttemptedQuestionList,json=attemptedQuestionList,proto3" json:"AttemptedQuestionList,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{}                        `json:"-"`
+	XXX_unrecognized      []byte                          `json:"-"`
+	XXX_sizecache         int32                           `json:"-"`
+}
+
+func (m *CandidateAttemptedQuestionList) Reset()         { *m = CandidateAttemptedQuestionList{} }
+func (m *CandidateAttemptedQuestionList) String() string { return proto.CompactTextString(m) }
+func (*CandidateAttemptedQuestionList) ProtoMessage()    {}
+func (*CandidateAttemptedQuestionList) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{19}
+}
+func (m *CandidateAttemptedQuestionList) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CandidateAttemptedQuestionList.Unmarshal(m, b)
+}
+func (m *CandidateAttemptedQuestionList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CandidateAttemptedQuestionList.Marshal(b, m, deterministic)
+}
+func (dst *CandidateAttemptedQuestionList) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CandidateAttemptedQuestionList.Merge(dst, src)
+}
+func (m *CandidateAttemptedQuestionList) XXX_Size() int {
+	return xxx_messageInfo_CandidateAttemptedQuestionList.Size(m)
+}
+func (m *CandidateAttemptedQuestionList) XXX_DiscardUnknown() {
+	xxx_messageInfo_CandidateAttemptedQuestionList.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CandidateAttemptedQuestionList proto.InternalMessageInfo
+
+func (m *CandidateAttemptedQuestionList) GetCandidateID() string {
 	if m != nil {
 		return m.CandidateID
 	}
 	return ""
 }
 
-func (m *CandidateCreateResponse) GetStatus() bool {
+func (m *CandidateAttemptedQuestionList) GetAttemptedQuestionList() []*CurrentQuestionOptionElement {
 	if m != nil {
-		return m.Status
+		return m.AttemptedQuestionList
 	}
-	return false
+	return nil
+}
+
+type ListQuestionToAnswerCorrectMappingResponse struct {
+	QuestionToAnswerCorrectMapping []*QuestionToAnswerCorrectMapping `protobuf:"bytes,1,rep,name=questionToAnswerCorrectMapping,proto3" json:"questionToAnswerCorrectMapping,omitempty"`
+	XXX_NoUnkeyedLiteral           struct{}                          `json:"-"`
+	XXX_unrecognized               []byte                            `json:"-"`
+	XXX_sizecache                  int32                             `json:"-"`
+}
+
+func (m *ListQuestionToAnswerCorrectMappingResponse) Reset() {
+	*m = ListQuestionToAnswerCorrectMappingResponse{}
+}
+func (m *ListQuestionToAnswerCorrectMappingResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*ListQuestionToAnswerCorrectMappingResponse) ProtoMessage() {}
+func (*ListQuestionToAnswerCorrectMappingResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_protofile_4a92c32b2d4d31e2, []int{20}
+}
+func (m *ListQuestionToAnswerCorrectMappingResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListQuestionToAnswerCorrectMappingResponse.Unmarshal(m, b)
+}
+func (m *ListQuestionToAnswerCorrectMappingResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListQuestionToAnswerCorrectMappingResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListQuestionToAnswerCorrectMappingResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListQuestionToAnswerCorrectMappingResponse.Merge(dst, src)
+}
+func (m *ListQuestionToAnswerCorrectMappingResponse) XXX_Size() int {
+	return xxx_messageInfo_ListQuestionToAnswerCorrectMappingResponse.Size(m)
+}
+func (m *ListQuestionToAnswerCorrectMappingResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListQuestionToAnswerCorrectMappingResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListQuestionToAnswerCorrectMappingResponse proto.InternalMessageInfo
+
+func (m *ListQuestionToAnswerCorrectMappingResponse) GetQuestionToAnswerCorrectMapping() []*QuestionToAnswerCorrectMapping {
+	if m != nil {
+		return m.QuestionToAnswerCorrectMapping
+	}
+	return nil
 }
 
 func init() {
-	proto.RegisterType((*Candidate)(nil), "grpcproto.Candidate")
-	proto.RegisterType((*Eligibility)(nil), "grpcproto.Eligibility")
 	proto.RegisterType((*User)(nil), "grpcproto.User")
 	proto.RegisterType((*UserCreateResponse)(nil), "grpcproto.UserCreateResponse")
-	proto.RegisterType((*TestResult)(nil), "grpcproto.TestResult")
+	proto.RegisterType((*Candidate)(nil), "grpcproto.Candidate")
+	proto.RegisterType((*ListCandidateResponse)(nil), "grpcproto.ListCandidateResponse")
 	proto.RegisterType((*CandidateCreateResponse)(nil), "grpcproto.CandidateCreateResponse")
+	proto.RegisterType((*CurrentTest)(nil), "grpcproto.CurrentTest")
+	proto.RegisterType((*Category)(nil), "grpcproto.Category")
+	proto.RegisterType((*ListCategoryResponse)(nil), "grpcproto.ListCategoryResponse")
+	proto.RegisterType((*Eligibility)(nil), "grpcproto.Eligibility")
+	proto.RegisterType((*TestResult)(nil), "grpcproto.TestResult")
+	proto.RegisterType((*Test)(nil), "grpcproto.Test")
+	proto.RegisterType((*ListTestResponse)(nil), "grpcproto.ListTestResponse")
+	proto.RegisterType((*TestLaunchResponse)(nil), "grpcproto.TestLaunchResponse")
+	proto.RegisterType((*Question)(nil), "grpcproto.Question")
+	proto.RegisterType((*ListQuestionResponse)(nil), "grpcproto.ListQuestionResponse")
+	proto.RegisterType((*Option)(nil), "grpcproto.Option")
+	proto.RegisterType((*ListOptionResponse)(nil), "grpcproto.ListOptionResponse")
+	proto.RegisterType((*QuestionToAnswerCorrectMapping)(nil), "grpcproto.QuestionToAnswerCorrectMapping")
+	proto.RegisterType((*CurrentQuestionOptionElement)(nil), "grpcproto.CurrentQuestionOptionElement")
+	proto.RegisterType((*CandidateAttemptedQuestionList)(nil), "grpcproto.CandidateAttemptedQuestionList")
+	proto.RegisterType((*ListQuestionToAnswerCorrectMappingResponse)(nil), "grpcproto.ListQuestionToAnswerCorrectMappingResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -369,6 +1086,8 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type UserServiceClient interface {
 	CreateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*UserCreateResponse, error)
+	GetUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	UpdateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 }
 
 type userServiceClient struct {
@@ -388,9 +1107,29 @@ func (c *userServiceClient) CreateUser(ctx context.Context, in *User, opts ...gr
 	return out, nil
 }
 
+func (c *userServiceClient) GetUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/grpcproto.UserService/GetUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) UpdateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/grpcproto.UserService/UpdateUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServiceServer is the server API for UserService service.
 type UserServiceServer interface {
 	CreateUser(context.Context, *User) (*UserCreateResponse, error)
+	GetUser(context.Context, *User) (*User, error)
+	UpdateUser(context.Context, *User) (*User, error)
 }
 
 func RegisterUserServiceServer(s *grpc.Server, srv UserServiceServer) {
@@ -415,6 +1154,42 @@ func _UserService_CreateUser_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).GetUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.UserService/GetUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).GetUser(ctx, req.(*User))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).UpdateUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.UserService/UpdateUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).UpdateUser(ctx, req.(*User))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _UserService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "grpcproto.UserService",
 	HandlerType: (*UserServiceServer)(nil),
@@ -422,6 +1197,14 @@ var _UserService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateUser",
 			Handler:    _UserService_CreateUser_Handler,
+		},
+		{
+			MethodName: "GetUser",
+			Handler:    _UserService_GetUser_Handler,
+		},
+		{
+			MethodName: "UpdateUser",
+			Handler:    _UserService_UpdateUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -433,6 +1216,9 @@ var _UserService_serviceDesc = grpc.ServiceDesc{
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CandidateServiceClient interface {
 	CreateCandidate(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*CandidateCreateResponse, error)
+	GetCandidate(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*Candidate, error)
+	UpdateCandidate(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*Candidate, error)
+	GetCandidateList(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*ListCandidateResponse, error)
 }
 
 type candidateServiceClient struct {
@@ -452,9 +1238,39 @@ func (c *candidateServiceClient) CreateCandidate(ctx context.Context, in *Candid
 	return out, nil
 }
 
+func (c *candidateServiceClient) GetCandidate(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*Candidate, error) {
+	out := new(Candidate)
+	err := c.cc.Invoke(ctx, "/grpcproto.CandidateService/GetCandidate", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *candidateServiceClient) UpdateCandidate(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*Candidate, error) {
+	out := new(Candidate)
+	err := c.cc.Invoke(ctx, "/grpcproto.CandidateService/UpdateCandidate", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *candidateServiceClient) GetCandidateList(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*ListCandidateResponse, error) {
+	out := new(ListCandidateResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.CandidateService/GetCandidateList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CandidateServiceServer is the server API for CandidateService service.
 type CandidateServiceServer interface {
 	CreateCandidate(context.Context, *Candidate) (*CandidateCreateResponse, error)
+	GetCandidate(context.Context, *Candidate) (*Candidate, error)
+	UpdateCandidate(context.Context, *Candidate) (*Candidate, error)
+	GetCandidateList(context.Context, *Candidate) (*ListCandidateResponse, error)
 }
 
 func RegisterCandidateServiceServer(s *grpc.Server, srv CandidateServiceServer) {
@@ -479,6 +1295,60 @@ func _CandidateService_CreateCandidate_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CandidateService_GetCandidate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Candidate)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CandidateServiceServer).GetCandidate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CandidateService/GetCandidate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CandidateServiceServer).GetCandidate(ctx, req.(*Candidate))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CandidateService_UpdateCandidate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Candidate)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CandidateServiceServer).UpdateCandidate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CandidateService/UpdateCandidate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CandidateServiceServer).UpdateCandidate(ctx, req.(*Candidate))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CandidateService_GetCandidateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Candidate)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CandidateServiceServer).GetCandidateList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CandidateService/GetCandidateList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CandidateServiceServer).GetCandidateList(ctx, req.(*Candidate))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _CandidateService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "grpcproto.CandidateService",
 	HandlerType: (*CandidateServiceServer)(nil),
@@ -487,42 +1357,1379 @@ var _CandidateService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "CreateCandidate",
 			Handler:    _CandidateService_CreateCandidate_Handler,
 		},
+		{
+			MethodName: "GetCandidate",
+			Handler:    _CandidateService_GetCandidate_Handler,
+		},
+		{
+			MethodName: "UpdateCandidate",
+			Handler:    _CandidateService_UpdateCandidate_Handler,
+		},
+		{
+			MethodName: "GetCandidateList",
+			Handler:    _CandidateService_GetCandidateList_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// CurrentTestServiceClient is the client API for CurrentTestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type CurrentTestServiceClient interface {
+	CreateCurrentTest(ctx context.Context, in *CurrentTest, opts ...grpc.CallOption) (*CurrentTest, error)
+	UpdateCurrentTest(ctx context.Context, in *CurrentTest, opts ...grpc.CallOption) (*CurrentTest, error)
+	GetCurrentTest(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*CurrentTest, error)
+}
+
+type currentTestServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewCurrentTestServiceClient(cc *grpc.ClientConn) CurrentTestServiceClient {
+	return &currentTestServiceClient{cc}
+}
+
+func (c *currentTestServiceClient) CreateCurrentTest(ctx context.Context, in *CurrentTest, opts ...grpc.CallOption) (*CurrentTest, error) {
+	out := new(CurrentTest)
+	err := c.cc.Invoke(ctx, "/grpcproto.CurrentTestService/CreateCurrentTest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *currentTestServiceClient) UpdateCurrentTest(ctx context.Context, in *CurrentTest, opts ...grpc.CallOption) (*CurrentTest, error) {
+	out := new(CurrentTest)
+	err := c.cc.Invoke(ctx, "/grpcproto.CurrentTestService/UpdateCurrentTest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *currentTestServiceClient) GetCurrentTest(ctx context.Context, in *Candidate, opts ...grpc.CallOption) (*CurrentTest, error) {
+	out := new(CurrentTest)
+	err := c.cc.Invoke(ctx, "/grpcproto.CurrentTestService/GetCurrentTest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CurrentTestServiceServer is the server API for CurrentTestService service.
+type CurrentTestServiceServer interface {
+	CreateCurrentTest(context.Context, *CurrentTest) (*CurrentTest, error)
+	UpdateCurrentTest(context.Context, *CurrentTest) (*CurrentTest, error)
+	GetCurrentTest(context.Context, *Candidate) (*CurrentTest, error)
+}
+
+func RegisterCurrentTestServiceServer(s *grpc.Server, srv CurrentTestServiceServer) {
+	s.RegisterService(&_CurrentTestService_serviceDesc, srv)
+}
+
+func _CurrentTestService_CreateCurrentTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CurrentTest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CurrentTestServiceServer).CreateCurrentTest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CurrentTestService/CreateCurrentTest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CurrentTestServiceServer).CreateCurrentTest(ctx, req.(*CurrentTest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CurrentTestService_UpdateCurrentTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CurrentTest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CurrentTestServiceServer).UpdateCurrentTest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CurrentTestService/UpdateCurrentTest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CurrentTestServiceServer).UpdateCurrentTest(ctx, req.(*CurrentTest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CurrentTestService_GetCurrentTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Candidate)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CurrentTestServiceServer).GetCurrentTest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CurrentTestService/GetCurrentTest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CurrentTestServiceServer).GetCurrentTest(ctx, req.(*Candidate))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _CurrentTestService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.CurrentTestService",
+	HandlerType: (*CurrentTestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateCurrentTest",
+			Handler:    _CurrentTestService_CreateCurrentTest_Handler,
+		},
+		{
+			MethodName: "UpdateCurrentTest",
+			Handler:    _CurrentTestService_UpdateCurrentTest_Handler,
+		},
+		{
+			MethodName: "GetCurrentTest",
+			Handler:    _CurrentTestService_GetCurrentTest_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// EligibilityServiceClient is the client API for EligibilityService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type EligibilityServiceClient interface {
+	CreateEligibility(ctx context.Context, in *Eligibility, opts ...grpc.CallOption) (*Eligibility, error)
+	UpdateEligibility(ctx context.Context, in *Eligibility, opts ...grpc.CallOption) (*Eligibility, error)
+	GetEligibility(ctx context.Context, in *Eligibility, opts ...grpc.CallOption) (*Eligibility, error)
+}
+
+type eligibilityServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewEligibilityServiceClient(cc *grpc.ClientConn) EligibilityServiceClient {
+	return &eligibilityServiceClient{cc}
+}
+
+func (c *eligibilityServiceClient) CreateEligibility(ctx context.Context, in *Eligibility, opts ...grpc.CallOption) (*Eligibility, error) {
+	out := new(Eligibility)
+	err := c.cc.Invoke(ctx, "/grpcproto.EligibilityService/CreateEligibility", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eligibilityServiceClient) UpdateEligibility(ctx context.Context, in *Eligibility, opts ...grpc.CallOption) (*Eligibility, error) {
+	out := new(Eligibility)
+	err := c.cc.Invoke(ctx, "/grpcproto.EligibilityService/UpdateEligibility", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eligibilityServiceClient) GetEligibility(ctx context.Context, in *Eligibility, opts ...grpc.CallOption) (*Eligibility, error) {
+	out := new(Eligibility)
+	err := c.cc.Invoke(ctx, "/grpcproto.EligibilityService/GetEligibility", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EligibilityServiceServer is the server API for EligibilityService service.
+type EligibilityServiceServer interface {
+	CreateEligibility(context.Context, *Eligibility) (*Eligibility, error)
+	UpdateEligibility(context.Context, *Eligibility) (*Eligibility, error)
+	GetEligibility(context.Context, *Eligibility) (*Eligibility, error)
+}
+
+func RegisterEligibilityServiceServer(s *grpc.Server, srv EligibilityServiceServer) {
+	s.RegisterService(&_EligibilityService_serviceDesc, srv)
+}
+
+func _EligibilityService_CreateEligibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Eligibility)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EligibilityServiceServer).CreateEligibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.EligibilityService/CreateEligibility",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EligibilityServiceServer).CreateEligibility(ctx, req.(*Eligibility))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EligibilityService_UpdateEligibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Eligibility)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EligibilityServiceServer).UpdateEligibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.EligibilityService/UpdateEligibility",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EligibilityServiceServer).UpdateEligibility(ctx, req.(*Eligibility))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EligibilityService_GetEligibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Eligibility)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EligibilityServiceServer).GetEligibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.EligibilityService/GetEligibility",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EligibilityServiceServer).GetEligibility(ctx, req.(*Eligibility))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _EligibilityService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.EligibilityService",
+	HandlerType: (*EligibilityServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateEligibility",
+			Handler:    _EligibilityService_CreateEligibility_Handler,
+		},
+		{
+			MethodName: "UpdateEligibility",
+			Handler:    _EligibilityService_UpdateEligibility_Handler,
+		},
+		{
+			MethodName: "GetEligibility",
+			Handler:    _EligibilityService_GetEligibility_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// AttemptedQuestionServiceClient is the client API for AttemptedQuestionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type AttemptedQuestionServiceClient interface {
+	CreateCandidateAttemptedQuestionList(ctx context.Context, in *CandidateAttemptedQuestionList, opts ...grpc.CallOption) (*CandidateAttemptedQuestionList, error)
+	UpdateCandidateAttemptedQuestionList(ctx context.Context, in *CandidateAttemptedQuestionList, opts ...grpc.CallOption) (*CandidateAttemptedQuestionList, error)
+	GetCandidateAttemptedQuestionList(ctx context.Context, in *CandidateAttemptedQuestionList, opts ...grpc.CallOption) (*CandidateAttemptedQuestionList, error)
+}
+
+type attemptedQuestionServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewAttemptedQuestionServiceClient(cc *grpc.ClientConn) AttemptedQuestionServiceClient {
+	return &attemptedQuestionServiceClient{cc}
+}
+
+func (c *attemptedQuestionServiceClient) CreateCandidateAttemptedQuestionList(ctx context.Context, in *CandidateAttemptedQuestionList, opts ...grpc.CallOption) (*CandidateAttemptedQuestionList, error) {
+	out := new(CandidateAttemptedQuestionList)
+	err := c.cc.Invoke(ctx, "/grpcproto.AttemptedQuestionService/CreateCandidateAttemptedQuestionList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attemptedQuestionServiceClient) UpdateCandidateAttemptedQuestionList(ctx context.Context, in *CandidateAttemptedQuestionList, opts ...grpc.CallOption) (*CandidateAttemptedQuestionList, error) {
+	out := new(CandidateAttemptedQuestionList)
+	err := c.cc.Invoke(ctx, "/grpcproto.AttemptedQuestionService/UpdateCandidateAttemptedQuestionList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *attemptedQuestionServiceClient) GetCandidateAttemptedQuestionList(ctx context.Context, in *CandidateAttemptedQuestionList, opts ...grpc.CallOption) (*CandidateAttemptedQuestionList, error) {
+	out := new(CandidateAttemptedQuestionList)
+	err := c.cc.Invoke(ctx, "/grpcproto.AttemptedQuestionService/GetCandidateAttemptedQuestionList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AttemptedQuestionServiceServer is the server API for AttemptedQuestionService service.
+type AttemptedQuestionServiceServer interface {
+	CreateCandidateAttemptedQuestionList(context.Context, *CandidateAttemptedQuestionList) (*CandidateAttemptedQuestionList, error)
+	UpdateCandidateAttemptedQuestionList(context.Context, *CandidateAttemptedQuestionList) (*CandidateAttemptedQuestionList, error)
+	GetCandidateAttemptedQuestionList(context.Context, *CandidateAttemptedQuestionList) (*CandidateAttemptedQuestionList, error)
+}
+
+func RegisterAttemptedQuestionServiceServer(s *grpc.Server, srv AttemptedQuestionServiceServer) {
+	s.RegisterService(&_AttemptedQuestionService_serviceDesc, srv)
+}
+
+func _AttemptedQuestionService_CreateCandidateAttemptedQuestionList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CandidateAttemptedQuestionList)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttemptedQuestionServiceServer).CreateCandidateAttemptedQuestionList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.AttemptedQuestionService/CreateCandidateAttemptedQuestionList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttemptedQuestionServiceServer).CreateCandidateAttemptedQuestionList(ctx, req.(*CandidateAttemptedQuestionList))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttemptedQuestionService_UpdateCandidateAttemptedQuestionList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CandidateAttemptedQuestionList)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttemptedQuestionServiceServer).UpdateCandidateAttemptedQuestionList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.AttemptedQuestionService/UpdateCandidateAttemptedQuestionList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttemptedQuestionServiceServer).UpdateCandidateAttemptedQuestionList(ctx, req.(*CandidateAttemptedQuestionList))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AttemptedQuestionService_GetCandidateAttemptedQuestionList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CandidateAttemptedQuestionList)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AttemptedQuestionServiceServer).GetCandidateAttemptedQuestionList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.AttemptedQuestionService/GetCandidateAttemptedQuestionList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AttemptedQuestionServiceServer).GetCandidateAttemptedQuestionList(ctx, req.(*CandidateAttemptedQuestionList))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _AttemptedQuestionService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.AttemptedQuestionService",
+	HandlerType: (*AttemptedQuestionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateCandidateAttemptedQuestionList",
+			Handler:    _AttemptedQuestionService_CreateCandidateAttemptedQuestionList_Handler,
+		},
+		{
+			MethodName: "UpdateCandidateAttemptedQuestionList",
+			Handler:    _AttemptedQuestionService_UpdateCandidateAttemptedQuestionList_Handler,
+		},
+		{
+			MethodName: "GetCandidateAttemptedQuestionList",
+			Handler:    _AttemptedQuestionService_GetCandidateAttemptedQuestionList_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// CategoryServiceClient is the client API for CategoryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type CategoryServiceClient interface {
+	CreateCategory(ctx context.Context, in *Category, opts ...grpc.CallOption) (*Category, error)
+	GetCategory(ctx context.Context, in *Category, opts ...grpc.CallOption) (*Category, error)
+	GetCategoryList(ctx context.Context, in *Category, opts ...grpc.CallOption) (*ListCategoryResponse, error)
+	UpdateCategory(ctx context.Context, in *CurrentTest, opts ...grpc.CallOption) (*CurrentTest, error)
+}
+
+type categoryServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewCategoryServiceClient(cc *grpc.ClientConn) CategoryServiceClient {
+	return &categoryServiceClient{cc}
+}
+
+func (c *categoryServiceClient) CreateCategory(ctx context.Context, in *Category, opts ...grpc.CallOption) (*Category, error) {
+	out := new(Category)
+	err := c.cc.Invoke(ctx, "/grpcproto.CategoryService/CreateCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *categoryServiceClient) GetCategory(ctx context.Context, in *Category, opts ...grpc.CallOption) (*Category, error) {
+	out := new(Category)
+	err := c.cc.Invoke(ctx, "/grpcproto.CategoryService/GetCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *categoryServiceClient) GetCategoryList(ctx context.Context, in *Category, opts ...grpc.CallOption) (*ListCategoryResponse, error) {
+	out := new(ListCategoryResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.CategoryService/GetCategoryList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *categoryServiceClient) UpdateCategory(ctx context.Context, in *CurrentTest, opts ...grpc.CallOption) (*CurrentTest, error) {
+	out := new(CurrentTest)
+	err := c.cc.Invoke(ctx, "/grpcproto.CategoryService/UpdateCategory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CategoryServiceServer is the server API for CategoryService service.
+type CategoryServiceServer interface {
+	CreateCategory(context.Context, *Category) (*Category, error)
+	GetCategory(context.Context, *Category) (*Category, error)
+	GetCategoryList(context.Context, *Category) (*ListCategoryResponse, error)
+	UpdateCategory(context.Context, *CurrentTest) (*CurrentTest, error)
+}
+
+func RegisterCategoryServiceServer(s *grpc.Server, srv CategoryServiceServer) {
+	s.RegisterService(&_CategoryService_serviceDesc, srv)
+}
+
+func _CategoryService_CreateCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Category)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).CreateCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CategoryService/CreateCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).CreateCategory(ctx, req.(*Category))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CategoryService_GetCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Category)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).GetCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CategoryService/GetCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).GetCategory(ctx, req.(*Category))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CategoryService_GetCategoryList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Category)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).GetCategoryList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CategoryService/GetCategoryList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).GetCategoryList(ctx, req.(*Category))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CategoryService_UpdateCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CurrentTest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).UpdateCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.CategoryService/UpdateCategory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).UpdateCategory(ctx, req.(*CurrentTest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _CategoryService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.CategoryService",
+	HandlerType: (*CategoryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateCategory",
+			Handler:    _CategoryService_CreateCategory_Handler,
+		},
+		{
+			MethodName: "GetCategory",
+			Handler:    _CategoryService_GetCategory_Handler,
+		},
+		{
+			MethodName: "GetCategoryList",
+			Handler:    _CategoryService_GetCategoryList_Handler,
+		},
+		{
+			MethodName: "UpdateCategory",
+			Handler:    _CategoryService_UpdateCategory_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// TestServiceClient is the client API for TestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type TestServiceClient interface {
+	CreateTest(ctx context.Context, in *Test, opts ...grpc.CallOption) (*Test, error)
+	GetTestList(ctx context.Context, in *Test, opts ...grpc.CallOption) (*ListTestResponse, error)
+	LauchTest(ctx context.Context, in *Test, opts ...grpc.CallOption) (*TestLaunchResponse, error)
+}
+
+type testServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewTestServiceClient(cc *grpc.ClientConn) TestServiceClient {
+	return &testServiceClient{cc}
+}
+
+func (c *testServiceClient) CreateTest(ctx context.Context, in *Test, opts ...grpc.CallOption) (*Test, error) {
+	out := new(Test)
+	err := c.cc.Invoke(ctx, "/grpcproto.TestService/CreateTest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testServiceClient) GetTestList(ctx context.Context, in *Test, opts ...grpc.CallOption) (*ListTestResponse, error) {
+	out := new(ListTestResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.TestService/GetTestList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testServiceClient) LauchTest(ctx context.Context, in *Test, opts ...grpc.CallOption) (*TestLaunchResponse, error) {
+	out := new(TestLaunchResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.TestService/LauchTest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TestServiceServer is the server API for TestService service.
+type TestServiceServer interface {
+	CreateTest(context.Context, *Test) (*Test, error)
+	GetTestList(context.Context, *Test) (*ListTestResponse, error)
+	LauchTest(context.Context, *Test) (*TestLaunchResponse, error)
+}
+
+func RegisterTestServiceServer(s *grpc.Server, srv TestServiceServer) {
+	s.RegisterService(&_TestService_serviceDesc, srv)
+}
+
+func _TestService_CreateTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Test)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServiceServer).CreateTest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.TestService/CreateTest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServiceServer).CreateTest(ctx, req.(*Test))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TestService_GetTestList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Test)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServiceServer).GetTestList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.TestService/GetTestList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServiceServer).GetTestList(ctx, req.(*Test))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TestService_LauchTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Test)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestServiceServer).LauchTest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.TestService/LauchTest",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestServiceServer).LauchTest(ctx, req.(*Test))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _TestService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.TestService",
+	HandlerType: (*TestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateTest",
+			Handler:    _TestService_CreateTest_Handler,
+		},
+		{
+			MethodName: "GetTestList",
+			Handler:    _TestService_GetTestList_Handler,
+		},
+		{
+			MethodName: "LauchTest",
+			Handler:    _TestService_LauchTest_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// TestResultServiceClient is the client API for TestResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type TestResultServiceClient interface {
+	EvaluateTestResult(ctx context.Context, in *Test, opts ...grpc.CallOption) (*TestResult, error)
+	GetTestResult(ctx context.Context, in *Test, opts ...grpc.CallOption) (*TestResult, error)
+}
+
+type testResultServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewTestResultServiceClient(cc *grpc.ClientConn) TestResultServiceClient {
+	return &testResultServiceClient{cc}
+}
+
+func (c *testResultServiceClient) EvaluateTestResult(ctx context.Context, in *Test, opts ...grpc.CallOption) (*TestResult, error) {
+	out := new(TestResult)
+	err := c.cc.Invoke(ctx, "/grpcproto.TestResultService/EvaluateTestResult", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *testResultServiceClient) GetTestResult(ctx context.Context, in *Test, opts ...grpc.CallOption) (*TestResult, error) {
+	out := new(TestResult)
+	err := c.cc.Invoke(ctx, "/grpcproto.TestResultService/GetTestResult", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TestResultServiceServer is the server API for TestResultService service.
+type TestResultServiceServer interface {
+	EvaluateTestResult(context.Context, *Test) (*TestResult, error)
+	GetTestResult(context.Context, *Test) (*TestResult, error)
+}
+
+func RegisterTestResultServiceServer(s *grpc.Server, srv TestResultServiceServer) {
+	s.RegisterService(&_TestResultService_serviceDesc, srv)
+}
+
+func _TestResultService_EvaluateTestResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Test)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestResultServiceServer).EvaluateTestResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.TestResultService/EvaluateTestResult",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestResultServiceServer).EvaluateTestResult(ctx, req.(*Test))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TestResultService_GetTestResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Test)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TestResultServiceServer).GetTestResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.TestResultService/GetTestResult",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TestResultServiceServer).GetTestResult(ctx, req.(*Test))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _TestResultService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.TestResultService",
+	HandlerType: (*TestResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "EvaluateTestResult",
+			Handler:    _TestResultService_EvaluateTestResult_Handler,
+		},
+		{
+			MethodName: "GetTestResult",
+			Handler:    _TestResultService_GetTestResult_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// QuestionServiceClient is the client API for QuestionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type QuestionServiceClient interface {
+	CreateQuestion(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error)
+	GetQuestion(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error)
+	GetQuestionList(ctx context.Context, in *Question, opts ...grpc.CallOption) (*ListQuestionResponse, error)
+	UpdateQuestion(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error)
+}
+
+type questionServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewQuestionServiceClient(cc *grpc.ClientConn) QuestionServiceClient {
+	return &questionServiceClient{cc}
+}
+
+func (c *questionServiceClient) CreateQuestion(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error) {
+	out := new(Question)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionService/CreateQuestion", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *questionServiceClient) GetQuestion(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error) {
+	out := new(Question)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionService/GetQuestion", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *questionServiceClient) GetQuestionList(ctx context.Context, in *Question, opts ...grpc.CallOption) (*ListQuestionResponse, error) {
+	out := new(ListQuestionResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionService/GetQuestionList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *questionServiceClient) UpdateQuestion(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error) {
+	out := new(Question)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionService/UpdateQuestion", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// QuestionServiceServer is the server API for QuestionService service.
+type QuestionServiceServer interface {
+	CreateQuestion(context.Context, *Question) (*Question, error)
+	GetQuestion(context.Context, *Question) (*Question, error)
+	GetQuestionList(context.Context, *Question) (*ListQuestionResponse, error)
+	UpdateQuestion(context.Context, *Question) (*Question, error)
+}
+
+func RegisterQuestionServiceServer(s *grpc.Server, srv QuestionServiceServer) {
+	s.RegisterService(&_QuestionService_serviceDesc, srv)
+}
+
+func _QuestionService_CreateQuestion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionServiceServer).CreateQuestion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionService/CreateQuestion",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionServiceServer).CreateQuestion(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuestionService_GetQuestion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionServiceServer).GetQuestion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionService/GetQuestion",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionServiceServer).GetQuestion(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuestionService_GetQuestionList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionServiceServer).GetQuestionList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionService/GetQuestionList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionServiceServer).GetQuestionList(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuestionService_UpdateQuestion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionServiceServer).UpdateQuestion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionService/UpdateQuestion",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionServiceServer).UpdateQuestion(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _QuestionService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.QuestionService",
+	HandlerType: (*QuestionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateQuestion",
+			Handler:    _QuestionService_CreateQuestion_Handler,
+		},
+		{
+			MethodName: "GetQuestion",
+			Handler:    _QuestionService_GetQuestion_Handler,
+		},
+		{
+			MethodName: "GetQuestionList",
+			Handler:    _QuestionService_GetQuestionList_Handler,
+		},
+		{
+			MethodName: "UpdateQuestion",
+			Handler:    _QuestionService_UpdateQuestion_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// OptionServiceClient is the client API for OptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type OptionServiceClient interface {
+	CreateOption(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error)
+	GetOption(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error)
+	GetOptionList(ctx context.Context, in *Question, opts ...grpc.CallOption) (*ListQuestionResponse, error)
+	UpdateOption(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error)
+}
+
+type optionServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewOptionServiceClient(cc *grpc.ClientConn) OptionServiceClient {
+	return &optionServiceClient{cc}
+}
+
+func (c *optionServiceClient) CreateOption(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error) {
+	out := new(Question)
+	err := c.cc.Invoke(ctx, "/grpcproto.OptionService/CreateOption", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *optionServiceClient) GetOption(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error) {
+	out := new(Question)
+	err := c.cc.Invoke(ctx, "/grpcproto.OptionService/GetOption", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *optionServiceClient) GetOptionList(ctx context.Context, in *Question, opts ...grpc.CallOption) (*ListQuestionResponse, error) {
+	out := new(ListQuestionResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.OptionService/GetOptionList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *optionServiceClient) UpdateOption(ctx context.Context, in *Question, opts ...grpc.CallOption) (*Question, error) {
+	out := new(Question)
+	err := c.cc.Invoke(ctx, "/grpcproto.OptionService/UpdateOption", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OptionServiceServer is the server API for OptionService service.
+type OptionServiceServer interface {
+	CreateOption(context.Context, *Question) (*Question, error)
+	GetOption(context.Context, *Question) (*Question, error)
+	GetOptionList(context.Context, *Question) (*ListQuestionResponse, error)
+	UpdateOption(context.Context, *Question) (*Question, error)
+}
+
+func RegisterOptionServiceServer(s *grpc.Server, srv OptionServiceServer) {
+	s.RegisterService(&_OptionService_serviceDesc, srv)
+}
+
+func _OptionService_CreateOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OptionServiceServer).CreateOption(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.OptionService/CreateOption",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OptionServiceServer).CreateOption(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OptionService_GetOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OptionServiceServer).GetOption(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.OptionService/GetOption",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OptionServiceServer).GetOption(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OptionService_GetOptionList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OptionServiceServer).GetOptionList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.OptionService/GetOptionList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OptionServiceServer).GetOptionList(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OptionService_UpdateOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Question)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OptionServiceServer).UpdateOption(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.OptionService/UpdateOption",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OptionServiceServer).UpdateOption(ctx, req.(*Question))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _OptionService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.OptionService",
+	HandlerType: (*OptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateOption",
+			Handler:    _OptionService_CreateOption_Handler,
+		},
+		{
+			MethodName: "GetOption",
+			Handler:    _OptionService_GetOption_Handler,
+		},
+		{
+			MethodName: "GetOptionList",
+			Handler:    _OptionService_GetOptionList_Handler,
+		},
+		{
+			MethodName: "UpdateOption",
+			Handler:    _OptionService_UpdateOption_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "grpcproto/protofile.proto",
+}
+
+// QuestionToAnswerServiceClient is the client API for QuestionToAnswerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type QuestionToAnswerServiceClient interface {
+	CreateQuestionToAnswerCorrectMapping(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*QuestionToAnswerCorrectMapping, error)
+	GetQuestionToAnswerCorrectMapping(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*QuestionToAnswerCorrectMapping, error)
+	GetQuestionToAnswerCorrectMappingList(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*ListQuestionToAnswerCorrectMappingResponse, error)
+	UpdateQuestionToAnswerCorrectMapping(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*QuestionToAnswerCorrectMapping, error)
+}
+
+type questionToAnswerServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewQuestionToAnswerServiceClient(cc *grpc.ClientConn) QuestionToAnswerServiceClient {
+	return &questionToAnswerServiceClient{cc}
+}
+
+func (c *questionToAnswerServiceClient) CreateQuestionToAnswerCorrectMapping(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*QuestionToAnswerCorrectMapping, error) {
+	out := new(QuestionToAnswerCorrectMapping)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionToAnswerService/CreateQuestionToAnswerCorrectMapping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *questionToAnswerServiceClient) GetQuestionToAnswerCorrectMapping(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*QuestionToAnswerCorrectMapping, error) {
+	out := new(QuestionToAnswerCorrectMapping)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionToAnswerService/GetQuestionToAnswerCorrectMapping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *questionToAnswerServiceClient) GetQuestionToAnswerCorrectMappingList(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*ListQuestionToAnswerCorrectMappingResponse, error) {
+	out := new(ListQuestionToAnswerCorrectMappingResponse)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionToAnswerService/GetQuestionToAnswerCorrectMappingList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *questionToAnswerServiceClient) UpdateQuestionToAnswerCorrectMapping(ctx context.Context, in *QuestionToAnswerCorrectMapping, opts ...grpc.CallOption) (*QuestionToAnswerCorrectMapping, error) {
+	out := new(QuestionToAnswerCorrectMapping)
+	err := c.cc.Invoke(ctx, "/grpcproto.QuestionToAnswerService/UpdateQuestionToAnswerCorrectMapping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// QuestionToAnswerServiceServer is the server API for QuestionToAnswerService service.
+type QuestionToAnswerServiceServer interface {
+	CreateQuestionToAnswerCorrectMapping(context.Context, *QuestionToAnswerCorrectMapping) (*QuestionToAnswerCorrectMapping, error)
+	GetQuestionToAnswerCorrectMapping(context.Context, *QuestionToAnswerCorrectMapping) (*QuestionToAnswerCorrectMapping, error)
+	GetQuestionToAnswerCorrectMappingList(context.Context, *QuestionToAnswerCorrectMapping) (*ListQuestionToAnswerCorrectMappingResponse, error)
+	UpdateQuestionToAnswerCorrectMapping(context.Context, *QuestionToAnswerCorrectMapping) (*QuestionToAnswerCorrectMapping, error)
+}
+
+func RegisterQuestionToAnswerServiceServer(s *grpc.Server, srv QuestionToAnswerServiceServer) {
+	s.RegisterService(&_QuestionToAnswerService_serviceDesc, srv)
+}
+
+func _QuestionToAnswerService_CreateQuestionToAnswerCorrectMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionToAnswerCorrectMapping)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionToAnswerServiceServer).CreateQuestionToAnswerCorrectMapping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionToAnswerService/CreateQuestionToAnswerCorrectMapping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionToAnswerServiceServer).CreateQuestionToAnswerCorrectMapping(ctx, req.(*QuestionToAnswerCorrectMapping))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuestionToAnswerService_GetQuestionToAnswerCorrectMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionToAnswerCorrectMapping)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionToAnswerServiceServer).GetQuestionToAnswerCorrectMapping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionToAnswerService/GetQuestionToAnswerCorrectMapping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionToAnswerServiceServer).GetQuestionToAnswerCorrectMapping(ctx, req.(*QuestionToAnswerCorrectMapping))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuestionToAnswerService_GetQuestionToAnswerCorrectMappingList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionToAnswerCorrectMapping)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionToAnswerServiceServer).GetQuestionToAnswerCorrectMappingList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionToAnswerService/GetQuestionToAnswerCorrectMappingList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionToAnswerServiceServer).GetQuestionToAnswerCorrectMappingList(ctx, req.(*QuestionToAnswerCorrectMapping))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuestionToAnswerService_UpdateQuestionToAnswerCorrectMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionToAnswerCorrectMapping)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuestionToAnswerServiceServer).UpdateQuestionToAnswerCorrectMapping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcproto.QuestionToAnswerService/UpdateQuestionToAnswerCorrectMapping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuestionToAnswerServiceServer).UpdateQuestionToAnswerCorrectMapping(ctx, req.(*QuestionToAnswerCorrectMapping))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _QuestionToAnswerService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcproto.QuestionToAnswerService",
+	HandlerType: (*QuestionToAnswerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateQuestionToAnswerCorrectMapping",
+			Handler:    _QuestionToAnswerService_CreateQuestionToAnswerCorrectMapping_Handler,
+		},
+		{
+			MethodName: "GetQuestionToAnswerCorrectMapping",
+			Handler:    _QuestionToAnswerService_GetQuestionToAnswerCorrectMapping_Handler,
+		},
+		{
+			MethodName: "GetQuestionToAnswerCorrectMappingList",
+			Handler:    _QuestionToAnswerService_GetQuestionToAnswerCorrectMappingList_Handler,
+		},
+		{
+			MethodName: "UpdateQuestionToAnswerCorrectMapping",
+			Handler:    _QuestionToAnswerService_UpdateQuestionToAnswerCorrectMapping_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "grpcproto/protofile.proto",
 }
 
 func init() {
-	proto.RegisterFile("grpcproto/protofile.proto", fileDescriptor_protofile_32d3f9170a831234)
+	proto.RegisterFile("grpcproto/protofile.proto", fileDescriptor_protofile_4a92c32b2d4d31e2)
 }
 
-var fileDescriptor_protofile_32d3f9170a831234 = []byte{
-	// 420 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0x51, 0xeb, 0xd3, 0x30,
-	0x14, 0xc5, 0x99, 0xeb, 0xbf, 0xb4, 0xb7, 0x6c, 0x1d, 0x61, 0xce, 0x3a, 0x50, 0x46, 0xf1, 0x61,
-	0xf8, 0x30, 0x61, 0xbe, 0x2a, 0x08, 0x9b, 0x0f, 0x63, 0x22, 0x92, 0xce, 0x67, 0xe9, 0xba, 0xeb,
-	0x08, 0xd4, 0xb5, 0x24, 0xe9, 0x64, 0x4f, 0x7e, 0x49, 0x3f, 0x90, 0x24, 0xa9, 0x69, 0x3a, 0x94,
-	0xff, 0x4b, 0xdb, 0xfb, 0xcb, 0xe5, 0xdc, 0x73, 0x2e, 0x29, 0x3c, 0x3f, 0xf3, 0xba, 0xa8, 0x79,
-	0x25, 0xab, 0x37, 0xfa, 0xf9, 0x9d, 0x95, 0xb8, 0xd2, 0x5f, 0x24, 0xb4, 0x47, 0xe9, 0xef, 0x01,
-	0x84, 0x9b, 0xfc, 0x72, 0x62, 0xa7, 0x5c, 0x22, 0x59, 0x40, 0x64, 0x8b, 0xdd, 0x36, 0x19, 0x2c,
-	0x06, 0xcb, 0x90, 0x46, 0x45, 0x87, 0xc8, 0x2b, 0x18, 0xd9, 0x8e, 0xcf, 0xf9, 0x0f, 0x4c, 0x9e,
-	0xe8, 0x9e, 0x51, 0xe1, 0x42, 0xf2, 0x01, 0xe2, 0x8f, 0x25, 0x3b, 0xb3, 0x23, 0x2b, 0x99, 0xbc,
-	0x7d, 0x62, 0x42, 0x26, 0xc3, 0xc5, 0x70, 0x19, 0xad, 0x67, 0x2b, 0x3b, 0x7a, 0xe5, 0x74, 0xd0,
-	0x18, 0xfb, 0xed, 0xe4, 0x3d, 0x8c, 0x0f, 0x28, 0x24, 0x45, 0xd1, 0x94, 0x52, 0x0b, 0x78, 0x5a,
-	0xe0, 0xa9, 0x23, 0xd0, 0x35, 0xd0, 0xb1, 0xec, 0x35, 0xa7, 0xbf, 0x20, 0x72, 0xe4, 0x95, 0x6b,
-	0xa7, 0xb4, 0xc9, 0x46, 0xe8, 0x42, 0xf2, 0x1a, 0x26, 0xae, 0x6b, 0xbc, 0x62, 0xd9, 0xc6, 0x9b,
-	0xe0, 0x1d, 0x27, 0x2f, 0x01, 0xd4, 0xf8, 0xdd, 0xd6, 0x86, 0x0b, 0x29, 0x48, 0x4b, 0x52, 0x0a,
-	0xde, 0x57, 0x81, 0x9c, 0xcc, 0x21, 0x50, 0x6f, 0xbd, 0x2a, 0x33, 0x34, 0x68, 0xda, 0x5a, 0x9d,
-	0x7d, 0xc9, 0x85, 0xf8, 0x59, 0xf1, 0x53, 0x3b, 0x27, 0xa8, 0xdb, 0x9a, 0x10, 0xf0, 0x0e, 0xb7,
-	0x1a, 0x93, 0xa1, 0xe6, 0x9e, 0xbc, 0xd5, 0x98, 0x6e, 0x81, 0x28, 0xad, 0x0d, 0xc7, 0x5c, 0x22,
-	0x45, 0x51, 0x57, 0x17, 0x81, 0x64, 0x06, 0xbe, 0xa2, 0x36, 0x94, 0xdf, 0xe8, 0x4a, 0xf1, 0x4c,
-	0xe6, 0xb2, 0x11, 0x5a, 0x3b, 0xa0, 0xbe, 0xd0, 0x55, 0xca, 0x8d, 0x73, 0xb3, 0x2c, 0x95, 0x63,
-	0x93, 0x4b, 0x3c, 0x57, 0xbc, 0x5b, 0x0b, 0x14, 0x96, 0x28, 0x15, 0x93, 0xb3, 0x75, 0xe8, 0x9b,
-	0x8c, 0x8a, 0x1b, 0x85, 0xd6, 0xa1, 0xcf, 0x8d, 0xde, 0x14, 0x1e, 0xb2, 0xa2, 0xe2, 0x98, 0x78,
-	0x1a, 0x3f, 0x08, 0x55, 0xa4, 0x19, 0x3c, 0xb3, 0xb7, 0xe6, 0xce, 0xfe, 0xe3, 0x57, 0xee, 0x3f,
-	0x41, 0xd6, 0x7b, 0x88, 0x54, 0xf0, 0x0c, 0xf9, 0x95, 0x15, 0x48, 0xde, 0x01, 0x18, 0x69, 0xbd,
-	0xf7, 0xd8, 0xb9, 0x27, 0x0a, 0xcc, 0x5f, 0xdc, 0x81, 0xbe, 0x8d, 0xf5, 0x37, 0x98, 0x58, 0x1b,
-	0x7f, 0x15, 0xf7, 0x10, 0x9b, 0xae, 0xee, 0x07, 0x99, 0x3a, 0x2a, 0x96, 0xce, 0xd3, 0x7f, 0xd1,
-	0xfe, 0x80, 0xa3, 0xaf, 0x8f, 0xdf, 0xfe, 0x09, 0x00, 0x00, 0xff, 0xff, 0x47, 0xd1, 0xf4, 0x8f,
-	0x97, 0x03, 0x00, 0x00,
+var fileDescriptor_protofile_4a92c32b2d4d31e2 = []byte{
+	// 1317 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x57, 0xcd, 0x6f, 0x1b, 0x45,
+	0x14, 0xd7, 0x3a, 0xb6, 0x63, 0x3f, 0x3b, 0x76, 0x32, 0xf9, 0xa8, 0x59, 0xda, 0x10, 0x56, 0x2d,
+	0xf4, 0x43, 0x0a, 0x74, 0x4b, 0x95, 0x92, 0x52, 0x94, 0xc8, 0x89, 0xa2, 0xd0, 0xa4, 0x25, 0x9b,
+	0xf4, 0x06, 0x87, 0xad, 0x3d, 0xa4, 0x2b, 0x39, 0xf6, 0x66, 0x77, 0x9c, 0x12, 0x09, 0x09, 0x38,
+	0x02, 0xa7, 0x4a, 0x1c, 0x91, 0x10, 0x97, 0x8a, 0x13, 0x57, 0xfe, 0x1b, 0xc4, 0x9f, 0x52, 0xcd,
+	0xe7, 0x8e, 0xd7, 0xe3, 0x6c, 0x9c, 0x48, 0xed, 0x25, 0xf1, 0xfc, 0xe6, 0x7d, 0xfe, 0xde, 0x9b,
+	0x99, 0xb7, 0xf0, 0xde, 0x61, 0x14, 0xb6, 0xc2, 0xa8, 0x47, 0x7a, 0x9f, 0xb0, 0xbf, 0xdf, 0x05,
+	0x1d, 0xbc, 0xcc, 0x7e, 0xa1, 0xb2, 0xda, 0x72, 0x7e, 0xb7, 0x20, 0xff, 0x2c, 0xc6, 0x11, 0xb2,
+	0xa1, 0x44, 0xff, 0x3f, 0xf1, 0x8f, 0x70, 0xc3, 0x5a, 0xb2, 0x6e, 0x96, 0xbd, 0x52, 0x5f, 0xac,
+	0xe9, 0xde, 0xd7, 0x7e, 0x1c, 0xbf, 0xec, 0x45, 0xed, 0x46, 0x8e, 0xef, 0x85, 0x62, 0x8d, 0x10,
+	0xe4, 0x0f, 0x4e, 0x43, 0xdc, 0x98, 0x60, 0x78, 0x9e, 0x9c, 0x86, 0x18, 0xcd, 0x41, 0x61, 0xf3,
+	0xc8, 0x0f, 0x3a, 0x8d, 0x3c, 0x03, 0x0b, 0x98, 0x2e, 0xa8, 0x24, 0xb3, 0x5e, 0xe0, 0x92, 0x5d,
+	0x6a, 0x79, 0x01, 0x8a, 0xd4, 0xeb, 0xf6, 0x46, 0xa3, 0xc8, 0xd0, 0x62, 0x9f, 0xad, 0x9c, 0x0d,
+	0x40, 0x14, 0x6f, 0x46, 0xd8, 0x27, 0xd8, 0xc3, 0x71, 0xd8, 0xeb, 0xc6, 0xba, 0xb4, 0xa5, 0x4b,
+	0x53, 0x7c, 0x9f, 0xf8, 0xa4, 0x1f, 0xb3, 0xe8, 0x4a, 0x5e, 0x31, 0x66, 0x2b, 0xe7, 0x1f, 0x0b,
+	0xca, 0x4d, 0xbf, 0xdb, 0x0e, 0xda, 0x3e, 0xc1, 0x68, 0x09, 0x2a, 0x6a, 0xa1, 0x4c, 0x54, 0x5a,
+	0x09, 0x84, 0xd6, 0xa0, 0xbe, 0xd9, 0x09, 0x0e, 0x83, 0xe7, 0x41, 0x27, 0x20, 0xa7, 0x3b, 0x41,
+	0x4c, 0x1a, 0xb9, 0xa5, 0x89, 0x9b, 0x15, 0x77, 0x61, 0x59, 0x31, 0xb6, 0xac, 0x49, 0x78, 0x75,
+	0x3c, 0x28, 0x8e, 0x1e, 0x41, 0xed, 0x00, 0xc7, 0xc4, 0xc3, 0x71, 0xbf, 0x43, 0x98, 0x81, 0x09,
+	0x66, 0x60, 0x5e, 0x33, 0x90, 0x08, 0x78, 0x35, 0x32, 0x20, 0xec, 0xec, 0xc2, 0x3c, 0xfd, 0xaf,
+	0xc2, 0x54, 0x99, 0x7f, 0x06, 0xa0, 0x02, 0x8d, 0x1b, 0x16, 0xb3, 0x39, 0xa7, 0xd9, 0x4c, 0x34,
+	0x34, 0x39, 0x67, 0x1f, 0xae, 0xa8, 0x8d, 0x14, 0x95, 0xd9, 0x64, 0x8c, 0x22, 0x75, 0x1b, 0x2a,
+	0xcd, 0x7e, 0x14, 0xe1, 0x2e, 0xa1, 0x89, 0x20, 0x07, 0xaa, 0xdc, 0x10, 0xd1, 0x2d, 0x55, 0x5b,
+	0x1a, 0x46, 0x4d, 0x51, 0xd9, 0xed, 0x0d, 0xd1, 0x3d, 0x45, 0xc2, 0x56, 0xce, 0x13, 0x28, 0x35,
+	0x7d, 0x82, 0x0f, 0x7b, 0xd1, 0x29, 0x5a, 0x04, 0x90, 0xbf, 0x95, 0x15, 0x68, 0x29, 0x84, 0xfb,
+	0xe1, 0x2b, 0xd6, 0x45, 0x39, 0xe9, 0x27, 0xc1, 0x9c, 0xc7, 0x30, 0xc7, 0xe9, 0xe3, 0x98, 0x4a,
+	0xf6, 0x1e, 0x48, 0x4b, 0x81, 0x62, 0x6f, 0x76, 0x80, 0x3d, 0xa1, 0xa0, 0x89, 0x39, 0x3f, 0x42,
+	0x45, 0x2b, 0x35, 0xba, 0x0e, 0x53, 0xda, 0x52, 0x85, 0x38, 0x85, 0x75, 0x10, 0xdd, 0x86, 0x69,
+	0xbd, 0x83, 0xf0, 0x09, 0xee, 0x88, 0x48, 0xa7, 0x71, 0x0a, 0xa7, 0x19, 0x73, 0x56, 0x54, 0x9f,
+	0x94, 0x3d, 0x20, 0x0a, 0x71, 0x22, 0xbe, 0xcf, 0xdb, 0x23, 0x93, 0x9f, 0x11, 0x1c, 0x53, 0x9c,
+	0x5b, 0x10, 0x27, 0xb4, 0x18, 0x71, 0x7b, 0x73, 0x50, 0xd8, 0x6f, 0xf5, 0x22, 0x2c, 0xcf, 0x68,
+	0x4c, 0x17, 0xce, 0x6b, 0x0b, 0xf2, 0xac, 0xac, 0x17, 0x75, 0x67, 0x43, 0x89, 0xe2, 0xac, 0x44,
+	0xdc, 0x61, 0x89, 0x88, 0x35, 0xfa, 0x08, 0x6a, 0x7b, 0x7d, 0x1c, 0x93, 0xa0, 0xd7, 0x15, 0x49,
+	0xe7, 0x59, 0xd2, 0xb5, 0xe3, 0x01, 0x94, 0x96, 0x9a, 0xda, 0xd8, 0xe8, 0x47, 0x3e, 0x45, 0xc5,
+	0x85, 0x51, 0x25, 0x1a, 0xe6, 0x7c, 0x0e, 0xd3, 0x54, 0x56, 0x10, 0xc4, 0xcb, 0x7c, 0x03, 0x0a,
+	0x54, 0x46, 0x56, 0xb8, 0x9e, 0x3e, 0x73, 0x7c, 0xd7, 0xf9, 0xc9, 0x02, 0x44, 0xd7, 0x3b, 0x7e,
+	0xbf, 0xdb, 0x7a, 0xa1, 0xb4, 0x57, 0xa0, 0x2a, 0xe3, 0x60, 0xb1, 0x0d, 0xb7, 0x89, 0x0c, 0xde,
+	0x1b, 0x10, 0x44, 0x77, 0x01, 0x7a, 0xa1, 0x52, 0xe3, 0x17, 0xc6, 0x8c, 0xa6, 0xf6, 0x94, 0x6d,
+	0x7a, 0x9a, 0x90, 0xd3, 0x86, 0x92, 0x34, 0x46, 0x99, 0x4e, 0x58, 0x91, 0x4c, 0x27, 0x8c, 0x50,
+	0x36, 0xe4, 0xfe, 0x01, 0xfe, 0x9e, 0xc8, 0xc6, 0x3f, 0xd6, 0x30, 0x5a, 0xcc, 0xed, 0x78, 0xb7,
+	0xb9, 0xc7, 0x28, 0x2f, 0x79, 0x85, 0x80, 0x2e, 0x9c, 0x6d, 0x7e, 0x1c, 0x54, 0xd8, 0x32, 0xd3,
+	0xbb, 0x50, 0x96, 0xda, 0xf1, 0x59, 0x69, 0x26, 0x52, 0x4e, 0x1b, 0x8a, 0x3c, 0x8d, 0xcc, 0x70,
+	0x6d, 0x28, 0x71, 0x49, 0xd5, 0x1a, 0xa5, 0x9e, 0x58, 0x53, 0x5d, 0xbe, 0xc7, 0x12, 0xe1, 0xed,
+	0x21, 0x68, 0xa1, 0x88, 0xb3, 0x0e, 0x88, 0x06, 0x2c, 0x08, 0x93, 0xe1, 0xde, 0x81, 0x49, 0x8e,
+	0xc8, 0x60, 0x0d, 0xe4, 0x4e, 0x72, 0x2b, 0xb1, 0x13, 0xc1, 0xa2, 0x62, 0xab, 0xb7, 0xde, 0x8d,
+	0x5f, 0xe2, 0xa8, 0xd9, 0x8b, 0x22, 0xdc, 0x22, 0xbb, 0x7e, 0x18, 0x06, 0xdd, 0xc3, 0xcc, 0x04,
+	0x3e, 0x85, 0x59, 0xa1, 0x21, 0xf3, 0x50, 0x75, 0x2d, 0x7b, 0xb3, 0xad, 0xe1, 0x2d, 0xe7, 0x1b,
+	0xb8, 0x2a, 0x6e, 0x44, 0x69, 0x98, 0x6f, 0x6f, 0x76, 0xf0, 0x11, 0xee, 0x92, 0x4c, 0x8f, 0x57,
+	0xa1, 0x2c, 0xed, 0xc5, 0xc2, 0x4f, 0x59, 0x72, 0x16, 0x3b, 0x7f, 0x59, 0xb0, 0xa8, 0xae, 0xea,
+	0x75, 0x42, 0xf0, 0x51, 0x48, 0x70, 0x7b, 0x4f, 0xef, 0xc0, 0xec, 0xcb, 0xfc, 0x5b, 0x98, 0x37,
+	0xaa, 0x8a, 0x76, 0xfd, 0x58, 0xbf, 0x0c, 0xcf, 0x48, 0xc5, 0x9b, 0xf7, 0x4d, 0x56, 0x9c, 0x3f,
+	0x2d, 0xb8, 0xad, 0xb7, 0x9a, 0x99, 0x7a, 0x55, 0xd1, 0x63, 0x58, 0x3c, 0x3e, 0x53, 0x52, 0x14,
+	0xfa, 0x96, 0xa1, 0x2b, 0x47, 0x98, 0xce, 0x30, 0xe8, 0xfe, 0x6d, 0x41, 0x85, 0xce, 0x0e, 0xfb,
+	0x38, 0x3a, 0x09, 0x5a, 0x18, 0x7d, 0x01, 0xc0, 0x5f, 0x44, 0x36, 0xfc, 0xe8, 0x57, 0x05, 0x05,
+	0xec, 0x6b, 0x29, 0x20, 0xf5, 0x7a, 0xde, 0x81, 0xc9, 0x2d, 0x4c, 0xcc, 0xaa, 0x69, 0x00, 0x2d,
+	0x03, 0x3c, 0x0b, 0xdb, 0x23, 0x5d, 0xa5, 0x01, 0xf7, 0x75, 0x0e, 0xa6, 0x55, 0x39, 0x65, 0xbc,
+	0x8f, 0xa1, 0xce, 0x63, 0x48, 0xe6, 0x19, 0xe3, 0xfb, 0x6f, 0x3b, 0x26, 0x34, 0x15, 0xfe, 0x2a,
+	0x54, 0xb7, 0x30, 0xc9, 0xb2, 0x64, 0x44, 0xd1, 0x23, 0xa8, 0xf3, 0x6c, 0x2e, 0xa6, 0xfe, 0x15,
+	0x4c, 0xeb, 0xae, 0x59, 0xfb, 0x9a, 0xf5, 0x97, 0x34, 0xd4, 0x38, 0x14, 0xb9, 0xff, 0x59, 0x80,
+	0xb4, 0x51, 0x44, 0x52, 0xd5, 0x84, 0x19, 0x41, 0x95, 0x36, 0xa6, 0x2c, 0x0c, 0x77, 0x38, 0xc5,
+	0xed, 0x11, 0x38, 0x35, 0x22, 0xd2, 0xbc, 0x84, 0x91, 0x2f, 0xa1, 0x46, 0x93, 0xd5, 0x10, 0x73,
+	0xaa, 0x23, 0xf4, 0xdd, 0xff, 0x2d, 0x40, 0xda, 0x38, 0x31, 0x94, 0xa0, 0x3e, 0x9f, 0x8c, 0x18,
+	0x51, 0xed, 0x11, 0x78, 0x92, 0xe0, 0x65, 0x8c, 0xac, 0xb1, 0x04, 0x2f, 0x61, 0xc1, 0x7d, 0x35,
+	0x01, 0x8d, 0xa1, 0x9b, 0x49, 0x26, 0xfa, 0x03, 0x5c, 0x4f, 0x35, 0xbd, 0xf9, 0xfe, 0xbb, 0x65,
+	0x62, 0xd5, 0x28, 0x6a, 0x9f, 0x5f, 0x94, 0x7a, 0x4f, 0x75, 0xfa, 0xdb, 0xf4, 0x7e, 0x0a, 0x1f,
+	0xea, 0x07, 0xe5, 0x2d, 0xba, 0x76, 0x5f, 0xe5, 0xa0, 0x2e, 0x87, 0x3f, 0x59, 0x8a, 0x55, 0xa8,
+	0xc9, 0x52, 0x88, 0x81, 0xdd, 0x34, 0x40, 0xdb, 0x26, 0x10, 0xad, 0x40, 0x85, 0xa5, 0x32, 0xb6,
+	0xe2, 0x16, 0xd4, 0x35, 0x45, 0x96, 0xb1, 0x51, 0xf9, 0x83, 0xa1, 0xab, 0x22, 0xf5, 0x01, 0xb0,
+	0x06, 0x35, 0x59, 0x4a, 0x61, 0x7a, 0xcc, 0xa3, 0xec, 0xfe, 0x6b, 0x41, 0x45, 0xbf, 0x64, 0x96,
+	0xe5, 0xfb, 0xc1, 0x8e, 0x75, 0x7a, 0xd4, 0xb4, 0xd3, 0x00, 0x7a, 0xc8, 0x38, 0x60, 0x63, 0x67,
+	0x60, 0x52, 0x78, 0x3f, 0x95, 0xc2, 0xc0, 0x60, 0xfb, 0x10, 0xca, 0x3b, 0x7e, 0xbf, 0xf5, 0xc2,
+	0xec, 0xeb, 0x5a, 0x0a, 0x18, 0x9c, 0x6b, 0xdd, 0x5f, 0x2d, 0x98, 0x49, 0xbe, 0x23, 0x92, 0xf7,
+	0x0f, 0x6d, 0x9e, 0xf8, 0x9d, 0xbe, 0xc8, 0x40, 0x7c, 0x64, 0x0c, 0xd9, 0x36, 0x7f, 0xb7, 0xa2,
+	0x15, 0x98, 0x12, 0xd9, 0x8c, 0xa7, 0xe8, 0xfe, 0x96, 0x83, 0x7a, 0xfa, 0x94, 0xab, 0xd6, 0x52,
+	0x23, 0xb1, 0x69, 0x1a, 0xb5, 0x4d, 0xa0, 0x68, 0xad, 0x0b, 0x28, 0xf2, 0xd6, 0x1a, 0x38, 0x4c,
+	0x46, 0xe5, 0x74, 0x6b, 0x0d, 0x0d, 0xd3, 0xab, 0xb2, 0xb5, 0xc6, 0x0f, 0xc2, 0xfd, 0x39, 0x07,
+	0x53, 0x7c, 0xbe, 0x92, 0x5c, 0x3c, 0x80, 0x2a, 0xe7, 0x42, 0x4c, 0xdb, 0xe7, 0x4f, 0xe8, 0x3e,
+	0x94, 0xb7, 0x30, 0x19, 0x5b, 0x6d, 0x93, 0x55, 0xf2, 0x69, 0x78, 0x49, 0x16, 0x1e, 0x40, 0x95,
+	0xb3, 0x30, 0x6e, 0x00, 0xee, 0x1f, 0x79, 0xb8, 0x92, 0x9e, 0xed, 0x86, 0xee, 0xff, 0x8c, 0x91,
+	0xfe, 0xfc, 0x73, 0xa2, 0x7d, 0x7e, 0x51, 0x71, 0x03, 0xbf, 0x13, 0xd7, 0xbf, 0x58, 0x70, 0x23,
+	0xd3, 0xf7, 0xd0, 0x0b, 0x90, 0xe1, 0xff, 0xfe, 0x88, 0x22, 0x66, 0x0c, 0xeb, 0xea, 0x19, 0x7c,
+	0x17, 0x4c, 0x3c, 0x2f, 0x32, 0xa9, 0x7b, 0x6f, 0x02, 0x00, 0x00, 0xff, 0xff, 0x44, 0xa7, 0x5e,
+	0xdb, 0xce, 0x14, 0x00, 0x00,
 }
