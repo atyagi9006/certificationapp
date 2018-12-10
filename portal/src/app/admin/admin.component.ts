@@ -33,18 +33,20 @@ export class AdminComponent implements OnInit {
   }
 
   getCandidateDetails(userId: string) {
+
     console.log("requested by.." + userId);
     var result;
     this.userService.getCandidate(userId).subscribe(
       (data: any) => {
         console.log(data);
-        result = data;
+        this.examAttemptList = data.examAttemptList;
+         //const browserCheckUrl = (<HTMLInputElement>document.getElementById('listcandidate')).collapsible();
       }
     );
-    return result;
+    //return result;
   }
   showCandidateDetails(userId: string) {
     console.log("show requested by.." + userId);
-    this.examAttemptList=this.getCandidateDetails(userId).examAttemptList;
+   // this.examAttemptList=this.getCandidateDetails(userId).examAttemptList;
   }
 }

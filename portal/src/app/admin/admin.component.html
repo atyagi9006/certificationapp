@@ -3,14 +3,13 @@
 
   <div class="row">
     <h4>List of Candiate </h4>
-    <!-- <ul class="collapsible" data-collapsible="expandable"> -->
-    <ul class="collapsible popout" data-collapsible="accordion">
+    <ul class="collapsible" id="listcandidate" data-collapsible="expandable">
+    <!-- <ul class="collapsible popout" data-collapsible="accordion"> -->
       <ng-container *ngFor="let user of users;let i = index">
         <li *ngIf="user != null" class="collection-item">
           <div class="collapsible-header">
             <table>
-              <tr (click)="showCandidateDetails(user.userId)">
-                <tr>
+              <tr (click)="getCandidateDetails(user.userId)">
                 <td> <i class="material-icons">filter_drama</i></td>
                 <td> {{i+1}}.</td>
                 <td> Name: {{user.name}} </td>
@@ -19,17 +18,16 @@
             </table>
           </div>
           <div class="collapsible-body">
-            <div >
-              <table>
-                <thead>
-                  <tr>
-                    <th>Attempt</th>
-                    <th>category</th>
-                    <th>Score </th>
-                    <th>TimeSpent(in sec)</th>
-                  </tr>
-                </thead>
-                <tbody>
+            <table>
+              <thead>
+                <tr>
+                  <th>Attempt</th>
+                  <th>category</th>
+                  <th>Score </th>
+                  <th>TimeSpent(in sec)</th>
+                </tr>
+              </thead>
+              <tbody>
                 <tr *ngFor="let attempt of examAttemptList;let i = index">
                   <td>{{i}}</td>
                   <td>{{attempt.categoryId}}</td>
@@ -37,14 +35,11 @@
                   <td>{{attempt.timeSpent}}</td>
                 </tr>
               </tbody>
-      </table>
-  </div>
-  
-
-</div>
-</li>
-</ng-container>
-<!-- <li>
+            </table>
+          </div>
+        </li>
+      </ng-container>
+      <!-- <li>
         <div class="collapsible-header">
           <i class="material-icons">filter_drama</i>First Section</div>
         <div class="collapsible-body">
@@ -67,8 +62,8 @@
           <p>This is third section.</p>
         </div>
       </li> -->
-</ul>
+    </ul>
 
 
-</div>
+  </div>
 </div>
