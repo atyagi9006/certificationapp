@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col s6 offset-s3">
+        <div class="card">
+
+            <div class="card-content">
+                <div><h5>Welcome, {{examService.getParticipantName()}}</h5></div>
+                <form #testLaunchForm="ngForm" (ngSubmit)="LauchTest(Exam.value)" >
+
+                    <div class="row">
+                        <label>Exam</label>
+                        <select name="Exam" class="browser-default"  #Exam ngModel required>
+                            <option value="" disabled selected>Select Exam</option>
+                            <option value="History">History</option>
+                            <option value="Science: Mathematics">Science: Mathematics</option>
+                            <option value="Science & Nature">Science & Nature</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn-large btn-submit" type="submit" [disabled]="!testLaunchForm.valid">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
