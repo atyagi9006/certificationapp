@@ -12,6 +12,10 @@ message User {
   string UserID=6;
 }
 
+message ListUserResponse{
+  repeated User users=1;
+}
+
 message UserCreateResponse{
   string UserID = 1;
   bool Status=2;
@@ -19,8 +23,28 @@ message UserCreateResponse{
 
 message Candidate {
   string CandidateID = 1;
-  repeated Eligibility EligibilityList = 2;
-  repeated TestResult TestResultList = 3;
+ // repeated Eligibility EligibilityList = 2;
+  repeated ExamAttempt ExamAttemptList = 2;
+}
+
+message ExamAttempt {
+  string CategoryID = 1;
+  string TestID = 2;
+  string Result = 3;
+  string Score = 4;
+	repeated QuestionAttempts Questions = 5;
+	string TimeSpent =6;
+}
+
+message QuestionAttempts  {
+	string   QuestionID     = 1 ;  
+	string   Category       = 2;  
+	string   Type           = 3;  
+	string   Difficulty     = 4;  
+	string   Question       = 5;  
+	string   AttemptedAnswer= 6;  
+	repeated string Option  = 7;  
+	string   CorrectAnswer  = 8;  
 }
 
 message ListCandidateResponse {
@@ -73,13 +97,18 @@ message ListTestResponse {
 
 message TestLaunchResponse{
   repeated Question questionList=1;
-  repeated Option   optionList=2;
+ // repeated Option   optionList=2;
 }
 
 message Question  {
-	string QuestionID  =1;
-	string QuestionText=2;
-	bool IsMCQ         =3;
+	        string QuestionID  =1;
+	        string QuestionText=2;
+	        string Category   = 3;      
+	        string Type       = 4;      
+	        string Difficulty = 5;      
+	        string Question   = 6;      
+          string Answer     = 7;
+repeated  string IncorrectAnswers=8;      
 } 
 
 message ListQuestionResponse {
@@ -119,6 +148,7 @@ service UserService{
   rpc CreateUser(User) returns (UserCreateResponse);
   rpc GetUser(User) returns (User);
   rpc UpdateUser(User) returns (User);
+  rpc GetUserList(User)returns (ListUserResponse);
 }
 
 service CandidateService {
@@ -155,7 +185,7 @@ service CategoryService{
 service TestService{
   rpc CreateTest(Test)returns(Test);
   rpc GetTestList(Test)returns(ListTestResponse);
-  rpc LauchTest(Test)returns (TestLaunchResponse);
+  rpc TestLaunch(Test)returns (TestLaunchResponse);
 }
 
 service TestResultService {
