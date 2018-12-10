@@ -1,0 +1,9 @@
+database:
+  type: arango
+  url: localhost
+  port: 9994
+  database-name: test-project-db
+  user-type: admin
+  user-name: root
+  password: admin
+  arangoPort: 8529

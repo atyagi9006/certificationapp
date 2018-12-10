@@ -1,0 +1,2 @@
+dep ensure -add github.com/jinzhu/gorm
+dep ensure -add github.com/go-yaml/yaml
