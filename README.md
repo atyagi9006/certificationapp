@@ -1,9 +1,10 @@
 # certificationapp
 
-Prerequisites
-        redis dB - installed in Local/ docker image and running on localhost:6379
-        arango db -installed in local/ docker image and running on localhost:8529 in persistent mode
-        protoc for compiling  the  grpcproto
+Prerequisites:
+
+       1. redis dB - installed in Local/ docker image and running on localhost:6379
+       2. arango db -installed in local/ docker image and running on localhost:8529 in persistent mode
+       3. protoc for compiling  the  grpcproto
 
 Steps: 
 1. start arango
