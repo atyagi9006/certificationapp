@@ -1,0 +1,215 @@
+syntax = "proto3";
+
+package grpcproto;
+
+
+message User {
+  string UserName = 1;
+  string Password = 2;
+  string Type =3;
+  string Email=4;
+  string Name =5;
+  string UserID=6;
+}
+
+message ListUserResponse{
+  repeated User users=1;
+}
+
+message UserCreateResponse{
+  string UserID = 1;
+  bool Status=2;
+}
+
+message Candidate {
+  string CandidateID = 1;
+ // repeated Eligibility EligibilityList = 2;
+  repeated ExamAttempt ExamAttemptList = 2;
+}
+
+message ExamAttempt {
+  string CategoryID = 1;
+  string TestID = 2;
+  string Result = 3;
+  string Score = 4;
+	repeated QuestionAttempts Questions = 5;
+	string TimeSpent =6;
+}
+
+message QuestionAttempts  {
+	string   QuestionID     = 1 ;  
+	string   Category       = 2;  
+	string   Type           = 3;  
+	string   Difficulty     = 4;  
+	string   Question       = 5;  
+	string   AttemptedAnswer= 6;  
+	repeated string Option  = 7;  
+	string   CorrectAnswer  = 8;  
+}
+
+message ListCandidateResponse {
+  repeated Candidate candidates = 1;
+}
+
+message CandidateCreateResponse{
+  string CandidateID = 1;
+  bool Status=2;
+}
+
+message CurrentTest  {
+	string CandidtateID=1;
+	string TestID      =2;
+}
+
+message Category  {
+	string CategoryID  =1 ;
+	string CategoryName=2 ;
+}
+
+message ListCategoryResponse {
+  repeated Category categories = 1;
+}
+
+message Eligibility {
+  string EligibilityID = 1;
+  string EligibilityLevel = 2;
+  repeated string TestIDList = 3;
+}
+
+message TestResult {
+  string CategoryID = 1;
+  string TestID = 2;
+  string Result = 3;
+  string Score = 4;
+}
+
+message Test  {
+	string CategoryID    = 1; 
+	string TestID        = 2; 
+	string TestName      = 3; 
+repeated	string QuestionIDList= 4; 
+	string TestDuration  = 5;  
+}
+
+message ListTestResponse {
+  repeated Test tests = 1;
+}
+
+message TestLaunchResponse{
+  repeated Question questionList=1;
+ // repeated Option   optionList=2;
+}
+
+message Question  {
+	        string QuestionID  =1;
+	        string QuestionText=2;
+	        string Category   = 3;      
+	        string Type       = 4;      
+	        string Difficulty = 5;      
+	        string Question   = 6;      
+          string Answer     = 7;
+repeated  string IncorrectAnswers=8;      
+} 
+
+message ListQuestionResponse {
+  repeated Question questions = 1;
+}
+
+message Option  {
+	string QuestionID=1; 
+	string OptionID  =2; 
+	string OptionText=3; 
+}
+
+message ListOptionResponse {
+  repeated Option Options = 1;
+}
+
+message QuestionToAnswerCorrectMapping  {
+  string	QuestionID          =1;
+	repeated string  CorrectOptionIDList =2;
+}
+
+message CurrentQuestionOptionElement  {
+	string QuestionID =1;
+	repeated string OptionIDs  =2;
+}
+
+message CandidateAttemptedQuestionList  {
+	string CandidateID  =1;        
+ repeated CurrentQuestionOptionElement AttemptedQuestionList =2;	
+}
+
+message ListQuestionToAnswerCorrectMappingResponse{
+  repeated QuestionToAnswerCorrectMapping questionToAnswerCorrectMapping=1;
+}
+
+service UserService{
+  rpc CreateUser(User) returns (UserCreateResponse);
+  rpc GetUser(User) returns (User);
+  rpc UpdateUser(User) returns (User);
+  rpc GetUserList(User)returns (ListUserResponse);
+}
+
+service CandidateService {
+  rpc CreateCandidate(Candidate) returns (CandidateCreateResponse);
+  rpc GetCandidate(Candidate)returns (Candidate);
+  rpc UpdateCandidate(Candidate)returns (Candidate);
+  rpc GetCandidateList(Candidate)returns (ListCandidateResponse);
+}
+service CurrentTestService{
+  rpc CreateCurrentTest(CurrentTest)returns(CurrentTest);
+  rpc UpdateCurrentTest(CurrentTest)returns(CurrentTest);
+  rpc GetCurrentTest(Candidate)returns(CurrentTest);
+}
+
+service EligibilityService{
+  rpc CreateEligibility(Eligibility)returns(Eligibility);
+  rpc UpdateEligibility(Eligibility)returns(Eligibility);
+  rpc GetEligibility(Eligibility)returns(Eligibility);
+}
+
+service AttemptedQuestionService{
+  rpc CreateCandidateAttemptedQuestionList(CandidateAttemptedQuestionList) returns(CandidateAttemptedQuestionList);
+  rpc UpdateCandidateAttemptedQuestionList(CandidateAttemptedQuestionList)returns(CandidateAttemptedQuestionList);
+  rpc GetCandidateAttemptedQuestionList(CandidateAttemptedQuestionList)returns(CandidateAttemptedQuestionList);
+}
+
+service CategoryService{
+  rpc CreateCategory(Category)returns(Category);
+  rpc GetCategory(Category)returns(Category);
+  rpc GetCategoryList(Category)returns(ListCategoryResponse);
+  rpc UpdateCategory(CurrentTest)returns(CurrentTest);
+}
+  
+service TestService{
+  rpc CreateTest(Test)returns(Test);
+  rpc GetTestList(Test)returns(ListTestResponse);
+  rpc TestLaunch(Test)returns (TestLaunchResponse);
+}
+
+service TestResultService {
+  rpc EvaluateTestResult(Test)returns(TestResult);
+  rpc GetTestResult(Test)returns(TestResult);
+}
+
+service QuestionService{
+  rpc CreateQuestion(Question)returns(Question);
+  rpc GetQuestion(Question)returns(Question);
+  rpc GetQuestionList(Question)returns(ListQuestionResponse);
+  rpc UpdateQuestion(Question)returns(Question);
+}
+  
+service OptionService{
+  rpc CreateOption(Question)returns(Question);
+  rpc GetOption(Question)returns(Question);
+  rpc GetOptionList(Question)returns(ListQuestionResponse);
+  rpc UpdateOption(Question)returns(Question);
+}
+
+service QuestionToAnswerService{
+  rpc CreateQuestionToAnswerCorrectMapping(QuestionToAnswerCorrectMapping)returns(QuestionToAnswerCorrectMapping);
+  rpc GetQuestionToAnswerCorrectMapping(QuestionToAnswerCorrectMapping)returns(QuestionToAnswerCorrectMapping);
+  rpc GetQuestionToAnswerCorrectMappingList(QuestionToAnswerCorrectMapping)returns(ListQuestionToAnswerCorrectMappingResponse);
+  rpc UpdateQuestionToAnswerCorrectMapping(QuestionToAnswerCorrectMapping)returns(QuestionToAnswerCorrectMapping);
+}

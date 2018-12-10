@@ -1,0 +1,6 @@
+redittl -- time duration +10 min
+
+
+docker run -e ARANGO_ROOT_PASSWORD=admin -e ARANGO_STORAGE_ENGINE=rocksdb -p 8529:8529 -d  -v /home/atyagi/goLangWorkSpAce/src/github.com/atyagi9006/certificationapp/arango_volume:/var/lib/arangodb3 arangodb
+
+

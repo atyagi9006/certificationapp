@@ -1,0 +1,11 @@
+database:
+  type: redis
+  url: localhost
+  port: 6379
+  database-name: questiondb
+  old-database-name: 1
+  user-type: admin
+  user-name: root
+  password: 
+
+  
