@@ -16,8 +16,9 @@ export class UserService {
 
   insertParticipant(name: string, email: string, password: string) {
     var body = {
-      name: name,
-      email: email
+      "name": name,
+      "email": email,
+      "password":password
     }
     return this.http.post(this.rootURL + '/signup', body);
   }
@@ -25,8 +26,8 @@ export class UserService {
 
   authenticate(email: string, password: string) {
     var req = {
-      email: email,
-      password: password
+      "email": email,
+      "password": password
     }
     return this.http.post('http://localhost:8080/signin', req);
   }
