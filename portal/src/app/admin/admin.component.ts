@@ -31,6 +31,10 @@ export class AdminComponent implements OnInit {
       }
     );
   }
+  ngAfterViewInit(){
+    
+
+  }
 
   getCandidateDetails(userId: string) {
 
@@ -40,7 +44,7 @@ export class AdminComponent implements OnInit {
       (data: any) => {
         console.log(data);
         this.examAttemptList = data.examAttemptList;
-         //const browserCheckUrl = (<HTMLInputElement>document.getElementById('listcandidate')).collapsible();
+   // document.getElementById('listcandidate').collapsible(); 
       }
     );
     //return result;

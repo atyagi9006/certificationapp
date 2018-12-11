@@ -19,18 +19,19 @@ export class RegisterComponent implements OnInit {
   }
   OnSubmit(name:string , email:string, password :string){
 
-    if (this.checkEmail(email)){
+   /*  if (this.checkEmail(email)){
       this.userService.insertParticipant(name,email,password).subscribe(
-        (data:any)=>{
+        (data:any)=>{ */
           //we can use token based auth here
           /* localStorage.clear();
           localStorage.setItem('participant',JSON.stringify(data)) */
           //this.router.navigate(['/exam']);
          
-          this.router.navigate(['/login']);
+         /*  this.router.navigate(['/login']);
         }
      );
-    }
+    } */
+    this.checkEmail(email,name,password );
     
   }
   OnsignIn(){
@@ -40,20 +41,26 @@ export class RegisterComponent implements OnInit {
   search($event) {
     
   }
-  checkEmail(email :string){
-    var result;
+  checkEmail(email :string,name:string,password:string){
     this.userService.checkEmail(email).subscribe((data:any)=>{
       console.log(data);
       var valid=JSON.parse(data.valid);
       console.log("out"+data.valid)
       if (valid){
         console.log("inside"+data.valid)
-       
+        this.userService.insertParticipant(name,email,password).subscribe(
+          (data:any)=>{
+            //we can use token based auth here
+            /* localStorage.clear();
+            localStorage.setItem('participant',JSON.stringify(data)) */
+            //this.router.navigate(['/exam']);
+           
+            this.router.navigate(['/login']);
+          }
+       );
       }else{
         this.toastr.error("E-mail already in use.");
       } 
-      result=valid;
     });
-    return result;
   }
 }
