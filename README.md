@@ -6,7 +6,7 @@ Prerequisites:
        2. arango db -installed in local/ docker image and running on localhost:8529 in persistent mode
        3. protoc for compiling  the  grpcproto
 
-Steps: 
+Steps to setup: 
 1. start arango
     run-arango:
     docker run -e ARANGO_ROOT_PASSWORD=admin -e ARANGO_STORAGE_ENGINE=rocksdb -p 8529:8529 -d  -v  /home/atyagi/goLangWorkSpAce/src/github.com/atyagi9006/certificationapp/db-service/arango_volume:/var/lib/arangodb3 arangodb
