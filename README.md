@@ -1,4 +1,11 @@
 # certificationapp
+       -This app contains website for admin and candidate/student/participant.
+       -Candidate can register himself/herself and give the listed exams and sees the result in end.
+        If satisfied with the attempt he can submit or he can retake the test in the same attept or 
+        as a new attempt of same exam. But in each attempt will get 10 randonm Questions.
+       -Admin can login and check the resuts of list of students. Each row in the list is collapseable.  
+         
+
 
 Prerequisites:
 
