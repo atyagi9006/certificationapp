@@ -4,6 +4,9 @@ import (
 	"context"
 	"errors"
 	"log"
+	"strings"
+
+	"github.com/atyagi9006/certificationapp/core-service/src/config"
 
 	"github.com/atyagi9006/certificationapp/core-service/src/cache"
 
@@ -235,4 +238,29 @@ func GetCandidate(cclient grpcproto.CandidateServiceClient, candidate *models.Ca
 	log.Println(candidate.CandidtateID, " -- candiate created sucessful ... ")
 	log.Printf("Exit - " + funcName)
 	return responsePayload, nil
+}
+func CreateAdminIfNotExist() *models.User {
+	conn := util.GetGRPCConn()
+	client := grpcproto.NewUserServiceClient(conn)
+	admin := models.User{
+		Name:     config.AdminName,
+		Email:    config.AdminEmail,
+		Password: config.AdminPassword,
+		Type:     config.AdminType,
+	}
+	ures, err := GetUser(client, &admin)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if ures.Email != "" && strings.EqualFold(util.GetMD5Hash(admin.Password), ures.Password) {
+		log.Println("Admin exists in db...")
+		return &admin
+	}
+	uresponse, err := CreateUser(client, &admin)
+	if err != nil {
+		log.Fatal(err)
+		return nil
+	}
+	log.Println("Admin Created status", uresponse.Status)
+	return &admin
 }
