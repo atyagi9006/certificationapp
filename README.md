@@ -27,3 +27,4 @@ Steps to setup:
         ~/certificationapp/portal>ng serve --open 
 6. create db as: test-project-db  and create collections={ user,candidate,question} in arango 
 7. Upload Questions to question collection by uploading {maths.json, sciencNature.json,history} one by one only once.
+8. Check core-service logs for admin credentials right after starting core micro-service.
